@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  
+    <link rel="stylesheet" href="../static/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/vendor/animate/animate.css">
+    <link rel="stylesheet" href="../static/vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" href="../static/vendor/select2/select2.min.css">
+    <link rel="stylesheet" href="../static/css/util.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <style>
+      .primaryColor{
+          color: #F0C844 ;
+      }
+      body *{
+          font-family: monospace;
+      }
+
+
+  </style>
+
+</head>
+<body>
+
+
+  <div class="ccontainer-fluid">
+
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand  mx-5" href="/">SpamguideAI </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    
+            <li class="nav-item">
+              <a  class="nav-link "  href="/spamChecker">SpamChecker</a>
+          </li>
+  
+          <li class="nav-item ">
+              <a  class="nav-link "  href="/aboutUs">AboutUs</a>
+          </li>
+  
+          <li class="nav-item ">
+              <a  class="nav-link "  href="/contact">Contact</a>
+          </li>
+  
+          </ul>
+          <form class="d-flex">
+               <!-- Display login and sign up buttons if user is not logged in -->
+               {% if 'email' not in session %}
+               <a class="btn btn-outline-success mx-2 my-2 my-sm-0" href="/login">Login</a>
+               <a class="btn btn-outline-success my-2 my-sm-0" href="/signUp">Sign Up</a>
+               {% endif %}
+               <!-- Display logout button if user is logged in -->
+               {% if 'email' in session %}
+               <a class="btn btn-outline-success mx-2 my-2 my-sm-0" href="/logout">Logout</a>
+               {% endif %}
+   
+          </form>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+  <div class="contact1" style="background-color: #ccc;">
+		<div class="container-contact1">
+			<div class="contact1-pic js-tilt" data-tilt>
+				<img src="../static/images/login.jpg" alt="IMG">
+			</div>
+
+			<form class="contact1-form validate-form">
+				<span class="contact1-form-title">
+					Login
+          
+        <p>Please Enter Your Login Credentails</p>
+				</span>
+
+
+				<div class="wrap-input1 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<input class="input1" type="text" name="email" id="email" placeholder="Email">
+					<span class="shadow-input1"></span>
+				</div>
+
+                
+				<div class="wrap-input1 validate-input" data-validate = "Password is required">
+					<input class="input1" type="password" name="password" id="password" placeholder="Password">
+					<span class="shadow-input1"></span>
+				</div>
+
+	
+
+
+				<div class="container-contact1-form-btn">
+          <button type="button" class="contact1-form-btn" id="loginBtn">
+            <span>Login <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
+        </button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+      <!-- Footer -->
+
+      <div class="container-fluid p-0">
+        <footer class="row text-center  pt-5 border-top " style="background-color: #F0C844;
+         background: linear-gradient(45deg, #ccc, #fff);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);">
+          <div class="col-md-4">
+            <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+             <p class="mx-5" style="font-weight: 700; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">SpamguideAI</p>
+            </a>
+            <p class="text-muted">2024 ©  SpamguideAI All Rights Reserved</p>
+          </div>
+      
+
+      
+          <div class="col-md-4">
+            <h5 style="font-weight: 900;">Quick Links</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="/spamChecker" class="nav-link p-0 text-muted">SpamChecker</a></li>
+              <li class="nav-item mb-2"><a href="/aboutUs" class="nav-link p-0 text-muted">AboutUs</a></li>
+              <li class="nav-item mb-2"><a href="/contact" class="nav-link p-0 text-muted">Contact</a></li>
+            </ul>
+          </div>
+      
+          <div class="col-md-4">
+            <h5 style="font-weight: 900;">Useful Links</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Privacy Policy</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Terms Of Service</a></li>
+            </ul>
+          </div>
+      
+        </footer>
+      </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../static/vendor/bootstrap/js/popper.js"></script>
+    <script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../static/vendor/select2/select2.min.js"></script>
+    <script src="../static/vendor/tilt/tilt.jquery.min.js"></script>
+
+ 
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'UA-23581568-13');
+  </script>
+  
+    <script src="../static/js/main.js"></script>
+
+    <script>
+      $(document).ready(function() {
+          $('.js-tilt').tilt({
+              scale: 1.1
+          });
+    
+          // Login button click event
+          $('#loginBtn').click(function() {
+              // Change button text to "Please wait"
+              $(this).html('<span>Please wait...</span>');
+    
+              var email = $('#email').val();
+              var password = $('#password').val();
+    
+              // Check if email and password are not empty
+              if (email.trim() === '' || password.trim() === '') {
+                  alert('Please enter both email and password.');
+                  // Revert button text to "Login"
+                  $('#loginBtn').html('<span>Login <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>');
+                  return;
+              }
+    
+              // Send login request to the server
+              $.ajax({
+                  type: 'POST',
+                  url: '/login',
+                  data: {
+                      email: email,
+                      password: password
+                  },
+                  success: function(response) {
+                      if (response.success) {
+                          // Redirect to the specified page if login is successful
+                          window.location.href = response.redirect;
+                      } else {
+                          // Show error message if login fails
+                          alert(response.message);
+                          // Revert button text to "Login"
+                          $('#loginBtn').html('<span>Login <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>');
+                      }
+                  },
+                  error: function(xhr, status, error) {
+                      alert('Login failed. Please check your credentials and try again.');
+                      // Revert button text to "Login"
+                      $('#loginBtn').html('<span>Login <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>');
+                  }
+              });
+          });
+      });
+    </script>
+    
+  
+</body>
+</html>
