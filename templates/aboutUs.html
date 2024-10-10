@@ -3,105 +3,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Spam Detector</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-            body{
-                margin: 0;
-                background-color: #F2F2F2;
-                font-weight: 500;
-                font-family: Inter, sans-serif;
-                color: #1C385D;
-
-              
-            }
-            .bg-image{
-                position: absolute;
-                width: 100%;
-                min-width: 320px;
-                opacity: 0.6;
-                height: max-content;
-                z-index: -1;
-            }
-            .nav-context{
-                transition: all 0.3s linear;
-                cursor: pointer;
-                padding: 0.2vw 0.8vw;
-                border-radius: 5px;
-                color: #1C385D;
-                text-decoration: none;
-            }
-            .nav-context:hover{
-                    background-color: #D6D3E0;
-            }
-            .log-btn{
-                padding: 0.6vw 1.2vw;
-                cursor: pointer;
-                border: 0.02vw #000 solid;
-                border-radius: 0.3vw;
-                color: #1C385D;
-                background-color: white;
-                transition: all 0.3s linear;
-            }
-            .log-btn:hover{
-                background-color: #D9DDE5;
-            }
-            .sign-btn{
-                padding: 0.6vw 1.2vw;
-                cursor: pointer;
-                border-radius: 0.3vw;
-                background-color: #1B2F4D;
-                color: white;
-                margin-left: 1vw;
-                transition: all 0.3s linear;
-            }
-            .sign-btn:hover{
-                background-color: #465472;
-            }
-            .qna-card{
-                cursor: pointer;
-                background-color: #ffff;
-                transition: all 0.3s linear;
-            }
-            .qna-card:hover{
-                background-color: #e3e2e6;
-            }
-            .feed-card{
-                -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.55);
--moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.55);
-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.55);
-            }
-            .footer-items{
-                cursor: pointer;
-                opacity: 80%;
-                transition: all 0.2s linear;
-            }
-            .footer-items:hover{
-                opacity: 100%;
-                
-            }
-            .svg-icons{
-                transition: all 0.2s linear;
-                cursor: pointer;
-            }
-            .svg-icons:hover{
-                transform: scale(110%);
-            }
-  </style>
+  <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
   <div class="bg-image">
-    <img src="../images/mainHero.png" alt="" class="" style="width: 100%;">
+    <img src="{{ main_img }}" alt="" class="" style="width: 100%;">
     </div>
     
     
                         <!-- navbar -->
     <nav style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; border-bottom: 0.02vw #00000042 solid; padding: 1.2vw 2vw; user-select:none ;">
     <!-- logo -->
-    <a href="index.html" style="font-size: 1.7vw; font-weight: 600; font-family: Inter, sans-serif; cursor: pointer; text-decoration: none; color: #1C385D;">Spam Detector</a>
+    <a href="/" style="font-size: 1.7vw; font-weight: 600; font-family: Inter, sans-serif; cursor: pointer; text-decoration: none; color: #1C385D;">Spam Detector</a>
     <!-- context -->
     <div style="display: flex; flex-direction: row; font-size: 1vw; font-weight: 600;">
         <div style="padding: 0.2vw 0.8vw; border-radius: 5px; background-color: #D6D3E0;">About</div>
-        <a href="contact.html" style="margin-left: 1vw;" class="nav-context">Contact</a>
+        <a href="/contact" style="margin-left: 1vw;" class="nav-context">Contact</a>
     </div>
     <!-- btn -->
     <div style="display: flex; flex-direction: row; font-size: 0.7vw;">
@@ -165,10 +82,10 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.55);
                         
                 </div>
                 <div style="font-size: 3vw; font-weight: 600; margin-top: 2vw;">About Spam Detector</div>
-                <div style="max-width: 50vw; margin: 2vw auto;">A pioneering force in the field of spam detection using AI. At Spam Detector, we are dedicated to creating a safer and more secure online experience for users by combatting spam and fraudulent activities. At Spam Detector , we continuously refine our algorithms and methodologies to stay ahead of emerging spamming techniques. Our commitment to innovation ensures that our users can trust in the reliability and effectiveness of our spam detection solutions.</div>
+                <div style="max-width: 50vw; margin: 2vw auto; font-size: 1vw;">A pioneering force in the field of spam detection using AI. At Spam Detector, we are dedicated to creating a safer and more secure online experience for users by combatting spam and fraudulent activities. At Spam Detector , we continuously refine our algorithms and methodologies to stay ahead of emerging spamming techniques. Our commitment to innovation ensures that our users can trust in the reliability and effectiveness of our spam detection solutions.</div>
             </div>
             <!-- image -->
-            <img src="../images/About 1.webp" alt="" style="width: 80vw; display: block; margin: 8vw auto;">
+            <img src="{{ img_About_1 }}" alt="" style="width: 80vw; display: block; margin: 8vw auto;">
 
         </section>
                                         <!-- About -->
@@ -176,12 +93,12 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.55);
             <!-- context -->
             <div style="width: 43vw; padding-top: 2vw;">
                 <div style="font-size: 2.5vw; color: #000; font-weight: 700;">Our Mission</div>
-                <div style="font-size: 1.2vw; margin-top: 0.6vw;">
+                <div style="font-size: 1.2vw; margin-top: 0.6vw; font-size: 1vw;">
                      We're on a mission to stop spam and scams at their source using AI. Our team works to stay ahead of spammers, giving you confidence to browse safely and know where threats come from. We're here to help you trust the internet again.
                 </div>
             </div>
             <!-- image -->
-            <img src="../images/about.webp" alt="" style="width: 40vw;">
+            <img src="{{ img_about }}" alt="" style="width: 40vw;">
 
         </section>
 
@@ -194,69 +111,98 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.55);
         <section id="qna" style="background-color: #F1F5F9; text-align: center; padding: 4vw 0;">
             <!-- context -->
             <div style="font-size: 3vw; font-weight: 600; ">About Spam Detector</div>
-                <div style="max-width: 50vw; margin: 1vw auto;">You've got questions? We've got answers.</div>
+                <div style="max-width: 50vw; margin: 1vw auto; font-size: 1vw;">You've got questions? We've got answers.</div>
 
                 <!-- cards -->
-               <div style="display: grid; grid-template-columns: 40vw 40vw; gap: 1vw 2vw; align-items: center; justify-content: center; margin-top: 4vw;">
+               <div style="display: grid; grid-template-columns: 40vw 40vw; gap: 1vw 2vw; align-items: start; justify-content: center; margin-top: 4vw;">
                 <!-- card 1 -->
-                <div style="display: flex; align-items: center; justify-content: space-between; padding: 1.5vw " class="qna-card">
-                    <div>How does this, work?</div>
-                    <svg width="1.2vw" viewBox="-5 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    
-                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-                            <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-473.000000, -1195.000000)" fill="#000000">
-                                <path d="M486.717,1206.22 L474.71,1195.28 C474.316,1194.89 473.678,1194.89 473.283,1195.28 C472.89,1195.67 472.89,1196.31 473.283,1196.7 L484.566,1206.98 L473.283,1217.27 C472.89,1217.66 472.89,1218.29 473.283,1218.69 C473.678,1219.08 474.316,1219.08 474.71,1218.69 L486.717,1207.75 C486.927,1207.54 487.017,1207.26 487.003,1206.98 C487.017,1206.71 486.927,1206.43 486.717,1206.22" id="chevron-right" sketch:type="MSShapeGroup">
-                    
-                    </path>
-                            </g>
-                        </g>
-                    </svg>
+                <div class="qna-card hide-card-context" style="padding: 1.5vw;" id="about-card-1">
+                    <div style="display: flex; align-items: center; justify-content: space-between;" >
+                        <div style="font-size: 1vw; font-weight: 700;">How does this, work?</div>
+                        <svg width="1.2vw" class="card-svg" id="card-svg" viewBox="-5 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+        
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                                <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-473.000000, -1195.000000)" fill="#000000">
+                                    <path d="M486.717,1206.22 L474.71,1195.28 C474.316,1194.89 473.678,1194.89 473.283,1195.28 C472.89,1195.67 472.89,1196.31 473.283,1196.7 L484.566,1206.98 L473.283,1217.27 C472.89,1217.66 472.89,1218.29 473.283,1218.69 C473.678,1219.08 474.316,1219.08 474.71,1218.69 L486.717,1207.75 C486.927,1207.54 487.017,1207.26 487.003,1206.98 C487.017,1206.71 486.927,1206.43 486.717,1206.22" id="chevron-right" sketch:type="MSShapeGroup">
                         
+                        </path>
+                                </g>
+                            </g>
+                        </svg>       
+                    </div>
+                    <!-- ans -->
+                    <div style="text-align: start; overflow: hidden;" class="card-context" id="about-context-1">
+                        <div style="border-top: 0.15vw #0000002d solid; padding: 1vw 0; margin-top: 1vw; font-size: 1vw;">
+                            Once the email has been provided to our detector, it can sense if it is a spam or not spam, and, also were its coming from and it can display it to you.
+                        </div>
+                    </div>
                 </div>
                 <!-- card 2 -->
-                <div style="display: flex; align-items: center; justify-content: space-between; padding: 1.5vw" class="qna-card">
-                    <div>Is it difficult to use?</div>
-                    <svg width="1.2vw" viewBox="-5 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    
-                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-                            <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-473.000000, -1195.000000)" fill="#000000">
-                                <path d="M486.717,1206.22 L474.71,1195.28 C474.316,1194.89 473.678,1194.89 473.283,1195.28 C472.89,1195.67 472.89,1196.31 473.283,1196.7 L484.566,1206.98 L473.283,1217.27 C472.89,1217.66 472.89,1218.29 473.283,1218.69 C473.678,1219.08 474.316,1219.08 474.71,1218.69 L486.717,1207.75 C486.927,1207.54 487.017,1207.26 487.003,1206.98 C487.017,1206.71 486.927,1206.43 486.717,1206.22" id="chevron-right" sketch:type="MSShapeGroup">
-                    
-                    </path>
-                            </g>
-                        </g>
-                    </svg>
+                <div class="qna-card hide-card-context" style="padding: 1.5vw;" id="about-card-2">
+                    <div style="display: flex; align-items: center; justify-content: space-between;" >
+                        <div style="font-size: 1vw; font-weight: 700;">Is it difficult to use?</div>
+                        <svg width="1.2vw" class="card-svg" id="card-svg" viewBox="-5 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+        
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                                <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-473.000000, -1195.000000)" fill="#000000">
+                                    <path d="M486.717,1206.22 L474.71,1195.28 C474.316,1194.89 473.678,1194.89 473.283,1195.28 C472.89,1195.67 472.89,1196.31 473.283,1196.7 L484.566,1206.98 L473.283,1217.27 C472.89,1217.66 472.89,1218.29 473.283,1218.69 C473.678,1219.08 474.316,1219.08 474.71,1218.69 L486.717,1207.75 C486.927,1207.54 487.017,1207.26 487.003,1206.98 C487.017,1206.71 486.927,1206.43 486.717,1206.22" id="chevron-right" sketch:type="MSShapeGroup">
                         
+                        </path>
+                                </g>
+                            </g>
+                        </svg>       
+                    </div>
+                    <!-- ans -->
+                    <div style="text-align: start; overflow: hidden;" class="card-context" id="about-context-1">
+                        <div style="border-top: 0.15vw #0000002d solid; padding: 1vw 0; margin-top: 1vw; font-size: 1vw;">
+                            Using spam detector is as simple as writing text to your friend.
+                        </div>
+                    </div>
                 </div>
+
                 <!-- card 3 -->
-                <div style="display: flex; align-items: center; justify-content: space-between; padding: 1.5vw" class="qna-card">
-                    <div>What are the benefits?</div>
-                    <svg width="1.2vw" viewBox="-5 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    
-                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-                            <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-473.000000, -1195.000000)" fill="#000000">
-                                <path d="M486.717,1206.22 L474.71,1195.28 C474.316,1194.89 473.678,1194.89 473.283,1195.28 C472.89,1195.67 472.89,1196.31 473.283,1196.7 L484.566,1206.98 L473.283,1217.27 C472.89,1217.66 472.89,1218.29 473.283,1218.69 C473.678,1219.08 474.316,1219.08 474.71,1218.69 L486.717,1207.75 C486.927,1207.54 487.017,1207.26 487.003,1206.98 C487.017,1206.71 486.927,1206.43 486.717,1206.22" id="chevron-right" sketch:type="MSShapeGroup">
-                    
-                    </path>
-                            </g>
-                        </g>
-                    </svg>
+                <div class="qna-card hide-card-context" style="padding: 1.5vw;" id="about-card-3">
+                    <div style="display: flex; align-items: center; justify-content: space-between;" >
+                        <div style="font-size: 1vw; font-weight: 700;">What are the benefits?</div>
+                        <svg width="1.2vw" class="card-svg" id="card-svg" viewBox="-5 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+        
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                                <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-473.000000, -1195.000000)" fill="#000000">
+                                    <path d="M486.717,1206.22 L474.71,1195.28 C474.316,1194.89 473.678,1194.89 473.283,1195.28 C472.89,1195.67 472.89,1196.31 473.283,1196.7 L484.566,1206.98 L473.283,1217.27 C472.89,1217.66 472.89,1218.29 473.283,1218.69 C473.678,1219.08 474.316,1219.08 474.71,1218.69 L486.717,1207.75 C486.927,1207.54 487.017,1207.26 487.003,1206.98 C487.017,1206.71 486.927,1206.43 486.717,1206.22" id="chevron-right" sketch:type="MSShapeGroup">
                         
+                        </path>
+                                </g>
+                            </g>
+                        </svg>       
+                    </div>
+                    <!-- ans -->
+                    <div style="text-align: start; overflow: hidden;" class="card-context" id="about-context-1">
+                        <div style="border-top: 0.15vw #0000002d solid; padding: 1vw 0; margin-top: 1vw; font-size: 1vw;">
+                            It can detect which emails of yours are spam or not spam, and, it can also tell you where this spam is coming from.
+                        </div>
+                    </div>
                 </div>
                 <!-- card 4 -->
-                <div style="display: flex; align-items: center; justify-content: space-between; padding: 1.5vw" class="qna-card">
-                    <div style="font-size: 1vw;">Where do I sign up?</div>
-                    <svg width="1.2vw" viewBox="-5 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    
-                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-                            <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-473.000000, -1195.000000)" fill="#000000">
-                                <path d="M486.717,1206.22 L474.71,1195.28 C474.316,1194.89 473.678,1194.89 473.283,1195.28 C472.89,1195.67 472.89,1196.31 473.283,1196.7 L484.566,1206.98 L473.283,1217.27 C472.89,1217.66 472.89,1218.29 473.283,1218.69 C473.678,1219.08 474.316,1219.08 474.71,1218.69 L486.717,1207.75 C486.927,1207.54 487.017,1207.26 487.003,1206.98 C487.017,1206.71 486.927,1206.43 486.717,1206.22" id="chevron-right" sketch:type="MSShapeGroup">
-                    
-                    </path>
-                            </g>
-                        </g>
-                    </svg>
+                <div class="qna-card hide-card-context" style="padding: 1.5vw;" id="about-card-4">
+                    <div style="display: flex; align-items: center; justify-content: space-between;" >
+                        <div style="font-size: 1vw; font-weight: 700;">How does this, work?</div>
+                        <svg width="1.2vw" class="card-svg" id="card-svg" viewBox="-5 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+        
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                                <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-473.000000, -1195.000000)" fill="#000000">
+                                    <path d="M486.717,1206.22 L474.71,1195.28 C474.316,1194.89 473.678,1194.89 473.283,1195.28 C472.89,1195.67 472.89,1196.31 473.283,1196.7 L484.566,1206.98 L473.283,1217.27 C472.89,1217.66 472.89,1218.29 473.283,1218.69 C473.678,1219.08 474.316,1219.08 474.71,1218.69 L486.717,1207.75 C486.927,1207.54 487.017,1207.26 487.003,1206.98 C487.017,1206.71 486.927,1206.43 486.717,1206.22" id="chevron-right" sketch:type="MSShapeGroup">
                         
+                        </path>
+                                </g>
+                            </g>
+                        </svg>       
+                    </div>
+                    <!-- ans -->
+                    <div style="text-align: start; overflow: hidden;" class="card-context" id="about-context-1">
+                        <div style="border-top: 0.15vw #0000002d solid; padding: 1vw 0; margin-top: 1vw; font-size: 1vw;">
+                            Just click on the top right corner of the screen where its winding up.
+                        </div>
+                    </div>
                 </div>
                </div>
         </section>
@@ -274,7 +220,7 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.55);
         <div style="display: grid; grid-template-columns: 25vw 25vw 25vw; gap: 2.5vw; align-items: center; justify-content: center; margin-top: 4vw;">
             <!-- card 1 -->
             <div style=" background-color: #fff; border-radius: 0.3vw;" class="feed-card">
-                <img src="../images/image 1.webp" alt="" style="width: 100%;">
+                <img src="{{ img_image_1 }}" alt="" style="width: 100%;">
                 <div style="height: 10vw; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1vw 0; font-size: 1vw;">
                     <div style="margin-bottom: 1vw;">Easy and Simple</div>
                       <!-- icons -->
@@ -331,7 +277,7 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.55);
                 </div>
             </div>
             <div style="background-color: #fff; border-radius: 0.3vw;" class="feed-card">
-                <img src="../images/image 2.webp" alt="" style="width: 100%;">
+                <img src="{{ img_image_2 }}" alt="" style="width: 100%;">
                 <div style="height: 10vw; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1vw 0; font-size: 1vw;">
                     <div style="margin-bottom: 1vw;">I recommed this website</div>
                       <!-- icons -->
@@ -388,7 +334,7 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.55);
                 </div>
             </div>
             <div style=" background-color: #fff; border-radius: 0.3vw;" class="feed-card">
-                <img src="../images/image 3.webp" alt="" style="width: 100%;">
+                <img src="{{ img_image_3 }}" alt="" style="width: 100%;">
                 
                 <div style="height: 10vw; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1vw 0; font-size: 1vw;">
                     <div style="margin-bottom: 1vw;">I can finnaly know that my email is Spam</div>
@@ -519,4 +465,57 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.55);
                                         
                                 
 </body>
+<script>
+    // card Dom mani
+const card1 = document.getElementById("about-card-1")
+const card2 = document.getElementById("about-card-2")
+const card3 = document.getElementById("about-card-3")
+const card4 = document.getElementById("about-card-4")
+
+card1.addEventListener("click", ()=> {
+    if(card1.classList.contains("hide-card-context")){
+        card1.classList.remove("hide-card-context")
+        card1.classList.add("show-card-context")
+    }
+    else {
+        card1.classList.remove("show-card-context")
+        card1.classList.add("hide-card-context")
+    }
+})
+
+
+card2.addEventListener("click", ()=> {
+    if(card2.classList.contains("hide-card-context")){
+        card2.classList.remove("hide-card-context")
+        card2.classList.add("show-card-context")
+    }
+    else {
+        card2.classList.remove("show-card-context")
+        card2.classList.add("hide-card-context")
+    }
+})
+
+card3.addEventListener("click", ()=> {
+    if(card3.classList.contains("hide-card-context")){
+        card3.classList.remove("hide-card-context")
+        card3.classList.add("show-card-context")
+    }
+    else {
+        card3.classList.remove("show-card-context")
+        card3.classList.add("hide-card-context")
+    }
+})
+
+card4.addEventListener("click", ()=> {
+    if(card4.classList.contains("hide-card-context")){
+        card4.classList.remove("hide-card-context")
+        card4.classList.add("show-card-context")
+    }
+    else {
+        card4.classList.remove("show-card-context")
+        card4.classList.add("hide-card-context")
+    }
+})
+
+</script>
 </html>

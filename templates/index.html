@@ -4,169 +4,119 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Spam Detector</title>
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-            body{
-                margin: 0;
-                background-color: #F2F2F2;
-                font-weight: 500;
-                font-family: Inter, sans-serif;
-                color: #1C385D;
-            
-              
-            }
-            .nav-context{
-                transition: all 0.3s linear;
-                cursor: pointer;
-                padding: 0.2vw 0.8vw;
-                border-radius: 5px;
-                color: #1C385D;
-                text-decoration: none;
-            }
-            .nav-context:hover{
-                    background-color: #D6D3E0;
-            }
-            .log-btn{
-                padding: 0.6vw 1.2vw;
-                cursor: pointer;
-                border: 0.02vw #000 solid;
-                border-radius: 0.3vw;
-                color: #1C385D;
-                background-color: white;
-                transition: all 0.3s linear;
-            }
-            .log-btn:hover{
-                background-color: #D9DDE5;
-            }
-            .sign-btn{
-                padding: 0.6vw 1.2vw;
-                cursor: pointer;
-                border-radius: 0.3vw;
-                background-color: #1B2F4D;
-                color: white;
-                margin-left: 1vw;
-                transition: all 0.3s linear;
-            }
-            .sign-btn:hover{
-                background-color: #465472;
-            }
-            .text-area{
-                -webkit-box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.35);
-                -moz-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.35);
-                box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.35);
-                resize: none;
-                border: none;
-                font-family: Inter;
-            }
-            .text-area:placeholder-shown{
-                font-family: Inter;
-            }
-            .text-area:focus{
-                outline: none;
-            }
-            .text-area-btn{
-                transition: all 0.3s linear;
-                background-color: #ffff;
-            }
-            .text-area-btn:hover{
-                background-color: #D9DDE5;
-                
-            }
-            .submit-btn{
-                padding: 0.6vw 1.2vw;
-                cursor: pointer;
-                border-radius: 0.3vw;
-                background-color: #BF6CCF;
-                color: #fff;
-                transition: all 0.3s linear;
-            }
-            .submit-btn:hover{
-                background-color: #BD7FE4;
-            }
-            .bg-image{
-                position: absolute;
-                width: 100%;
-                min-width: 320px;
-                opacity: 0.6;
-                height: max-content;
-                z-index: -1;
-                
-            }
-            .footer-items{
-                cursor: pointer;
-                opacity: 80%;
-                transition: all 0.2s linear;
-            }
-            .footer-items:hover{
-                opacity: 100%;
-                
-            }
-            .svg-icons{
-                transition: all 0.2s linear;
-                cursor: pointer;
-            }
-            .svg-icons:hover{
-                transform: scale(110%);
-            }
-            .hidden{
-                display: none;
-            }
-            .textarea-words{
-                opacity: 50%;
-            }
-            .alert{
-                position: fixed;
-                z-index: 50; 
-                background-color: #BF6CCF; 
-                color: #fff; 
-                margin: 3vw auto; 
-                left: 50%; 
-                transform: translateX(-50%); 
-                text-align: center; 
-                padding: 1vw 2vw; 
-                font-size: 1vw; 
-                font-weight: 700; 
-                transition: all 0.3s linear;
-                
-            }
-            .alert-show{
-                visibility: visible;
-                opacity: 1;
-            } 
-            .alert-hide{
-                visibility: hidden;
-                opacity: 0;
-            }
-            .hidden{
-                visibility: hidden;
-                opacity: 0;
-                transition: all 0.3s linear;
-            }
-        </style>
+        <link rel="stylesheet" href="../static/css/style.css">
     </head>
 <body >
 <div class="bg-image">
-<img src="../images/mainHero.png" alt="" class="" style="width: 100%;">
+<img src="{{ main_img }}" alt="" class="" style="width: 100%;">
 </div>
 
 <!-- fixed alert -->
 <div id="alert" class="alert alert-hide">
-Please type at least <br> 50 words
+Please type at least <br> 10 words
 </div>
+<!-- dark bg -->
+<div style="width: 100%; height: 150% ;left: 0; top: 0; position: absolute; background-color: #000; z-index: 30; opacity: 0.5;" id="dark-bg">
+
+</div>
+<!-- login -->
+{% if auth == "log" %}
+    <b>
+        <div style="position: fixed; z-index: 40; background-color: #fff; width: 25vw;  padding: 2vw 4vw; left: 50%; top: 10%; transform: translate(-50%); display: flex; flex-direction: column; align-items: center; justify-content: centers; border-radius: 0.5vw;">
+            <div style="font-size: 2vw; font-weight: 700;">Log In</div>
+            <!-- form -->
+            <form action="" style="margin-top: 2vw;">
+                <div style="display: flex; flex-direction: column;">
+                    <div style="font-size: 1vw; margin-bottom: 0.5vw;">Email</div>
+                    <input type="text" class="auth-input" placeholder="johnsmith@gmail.com">
+                </div>
+                <div style="display: flex; flex-direction: column; margin-top: 1vw;">
+                    <div style="font-size: 1vw; margin-bottom: 0.5vw;">Password</div>
+                    <input type="text" class="auth-input" placeholder="**********">
+                        <div class="log-forg">
+                            <a href="/forgetpassword">Forget Password</a>
+                        </div>
+                </div>
+                <button class="auth-btn">Log In</button>
+                <div style="width: 100%; text-align: center; margin-top: 0.5vw;">
+                    <a href="/signup" class="auth-log-text">Don't have an account. <span>Sgin Up</span></a>
+                </div>
+                <p class="log-text">By clicking on log, you agree to our <span>Terms of Services</span> and <span>Privacy Policy</span>.</p>
+            </form>
+        
+        </div>
+    </b>
+
+<!-- Sign up -->
+{% elif auth == "signup" %}
+    <b>
+        <div style="position: fixed; z-index: 40; background-color: #fff; width: 25vw;  padding: 2vw 4vw; left: 50%; top: 10%; transform: translate(-50%); display: flex; flex-direction: column; align-items: center; justify-content: centers; border-radius: 0.5vw;">
+            <div style="font-size: 2vw; font-weight: 700;">Sign Up</div>
+            <!-- form -->
+            <form action="" style="margin-top: 2vw;">
+                <div style="display: flex; flex-direction: column;">
+                    <div style="font-size: 1vw; margin-bottom: 0.5vw;">Username</div>
+                    <input type="text" class="auth-input" placeholder="John Smith">
+                </div>
+                <div style="display: flex; flex-direction: column; margin-top: 1vw;">
+                    <div style="font-size: 1vw; margin-bottom: 0.5vw;">Email</div>
+                    <input type="text" class="auth-input" placeholder="johnsmith@gmail.com">
+                </div>
+                <div style="display: flex; flex-direction: column; margin-top: 1vw;">
+                    <div style="font-size: 1vw; margin-bottom: 0.5vw;">Password</div>
+                    <input type="text" class="auth-input" placeholder="**********">
+                </div>
+                <button class="auth-btn">Sign In</button>
+                <div style="width: 100%; text-align: center; margin-top: 0.5vw;">
+                    <a href="/login" class="auth-log-text">Alread have an account. <span>log In</span></a>
+                </div>
+                <p class="log-text">By clicking on log, you agree to our <span>Terms of Services</span> and <span>Privacy Policy</span>.</p>
+            </form>
+        
+        </div>
+    </b>
+<!-- Forget Password -->
+{% elif auth == "forgetpassword" %}
+    <b>
+        <div style="position: fixed; z-index: 40; background-color: #fff; width: 25vw;  padding: 2vw 4vw; left: 50%; top: 10%; transform: translate(-50%); display: flex; flex-direction: column; align-items: center; justify-content: centers; border-radius: 0.5vw;">
+            <div style="font-size: 2vw; font-weight: 700;">Reset Passowrd</div>
+            <!-- form -->
+            <form action="" style="margin-top: 2vw;">
+                <div style="display: flex; flex-direction: column;">
+                    <div style="font-size: 1vw; margin-bottom: 0.5vw;">Email</div>
+                    <input type="text" class="auth-input" placeholder="johnsmith@gmail.com">
+                </div>
+                <div style="display: flex; flex-direction: column; margin-top: 1vw;">
+                    <div style="font-size: 1vw; margin-bottom: 0.5vw;">New Passowrd</div>
+                    <input type="text" class="auth-input" placeholder="**********">
+                </div>
+                <div style="display: flex; flex-direction: column; margin-top: 1vw;">
+                    <div style="font-size: 1vw; margin-bottom: 0.5vw;">Confirm Password</div>
+                    <input type="text" class="auth-input" placeholder="**********">
+                </div>
+                <button class="auth-btn">Submit</button>
+                
+                
+            </form>
+        
+        </div>
+    </b>
+{% endif %}
+    
+
 
                     <!-- navbar -->
 <nav style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; border-bottom: 0.02vw #00000042 solid; padding: 1.2vw 2vw; user-select:none ;">
 <!-- logo -->
-<a href="index.html" style="font-size: 1.7vw; font-weight: 600; font-family: Inter, sans-serif; cursor: pointer; text-decoration: none; color: #1C385D;">Spam Detector</a>
+<a href="/" style="font-size: 1.7vw; font-weight: 600; font-family: Inter, sans-serif; cursor: pointer; text-decoration: none; color: #1C385D;">Spam Detector</a>
 <!-- context -->
 <div style="display: flex; flex-direction: row; font-size: 1vw; font-weight: 600;">
-    <a href="aboutUs.html" class="nav-context">About</a>
-    <a href="contact.html" style="margin-left: 1vw;" class="nav-context">Contact</a>
+    <a href="/about" class="nav-context">About</a>
+    <a href="/contact" style="margin-left: 1vw;" class="nav-context">Contact</a>
 </div>
 <!-- btn -->
 <div style="display: flex; flex-direction: row; font-size: 0.7vw;">
-    <div class="log-btn">Log In</div>
-    <div class="sign-btn">Sign Up</div>
+    <div class="sign-btn">Log out</div>
 </div>
 </nav>
 
@@ -195,7 +145,7 @@ Please type at least <br> 50 words
             </div>
             <div style="display: inline; opacity: 50%; margin-left: 0.7vw;">you AI-generated text or</div>
             <!-- icon -->
-            <div id="sample" style="position: relative; z-index: 10; display: inline-flex; flex-direction: row; align-items: center; border: 0.1vw #00000025 solid; height: 1.5vw; padding: 0vw 0.5vw; border-radius: 0.5vw; user-select: none; cursor: pointer; margin-left: 0.7vw;" class="text-area-btn">
+            <div id="sample" style="position: relative; z-index: 20; display: inline-flex; flex-direction: row; align-items: center; border: 0.1vw #00000025 solid; height: 1.5vw; padding: 0vw 0.5vw; border-radius: 0.5vw; user-select: none; cursor: pointer; margin-left: 0.7vw;" class="text-area-btn">
                 <svg width="1.3vw" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M11 29.4696H10.6218L10.3383 29.7199L8 31.7836V13C8 11.3431 9.34315 10 11 10H32C33.6569 10 35 11.3431 35 13V26.4696C35 28.1265 33.6569 29.4696 32 29.4696H11Z" stroke="#AF72D5" stroke-width="2"/>
                     <path d="M21.5 13L23.2556 17.7444L28 19.5L23.2556 21.2556L21.5 26L19.7444 21.2556L15 19.5L19.7444 17.7444L21.5 13Z" fill="#AF72D5"/>
@@ -213,11 +163,12 @@ Please type at least <br> 50 words
     <div style=" display: flex; flex-direction: row; align-items: center; justify-content:space-between;  width: 61%; margin: 1vw auto; ">
         
         <!-- btn 1 -->
-        <div style="display: inline-flex; flex-direction: row; align-items: center;  padding: 0.3vw 1vw; border-radius: 0.6vw; user-select: none; cursor: pointer;" class="text-area-btn">
+        <div id="choose-file" style="display: inline-flex; flex-direction: row; align-items: center;  padding: 0.3vw 1vw; border-radius: 0.6vw; user-select: none; cursor: pointer;" class="text-area-btn">
             <svg width="1.2vw" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8 5.00005C7.01165 5.00082 6.49359 5.01338 6.09202 5.21799C5.71569 5.40973 5.40973 5.71569 5.21799 6.09202C5 6.51984 5 7.07989 5 8.2V17.8C5 18.9201 5 19.4802 5.21799 19.908C5.40973 20.2843 5.71569 20.5903 6.09202 20.782C6.51984 21 7.07989 21 8.2 21H15.8C16.9201 21 17.4802 21 17.908 20.782C18.2843 20.5903 18.5903 20.2843 18.782 19.908C19 19.4802 19 18.9201 19 17.8V8.2C19 7.07989 19 6.51984 18.782 6.09202C18.5903 5.71569 18.2843 5.40973 17.908 5.21799C17.5064 5.01338 16.9884 5.00082 16 5.00005M8 5.00005V7H16V5.00005M8 5.00005V4.70711C8 4.25435 8.17986 3.82014 8.5 3.5C8.82014 3.17986 9.25435 3 9.70711 3H14.2929C14.7456 3 15.1799 3.17986 15.5 3.5C15.8201 3.82014 16 4.25435 16 4.70711V5.00005" stroke="#BF6CCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-            <p style="display: inline; margin-left: 0.3vw; color: #000;">Choose a File</p>
+            <p style="display: inline; margin-left: 0.3vw; color: #000; font-size: 1vw;">Choose a File</p>
+            <input type="file" accept="text/plain" name="" id="picker" style="display: none;">
         </div>
 
         <!-- btn 2 -->
@@ -227,13 +178,13 @@ Please type at least <br> 50 words
                 <svg width="1vw" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4 6H20M16 6L15.7294 5.18807C15.4671 4.40125 15.3359 4.00784 15.0927 3.71698C14.8779 3.46013 14.6021 3.26132 14.2905 3.13878C13.9376 3 13.523 3 12.6936 3H11.3064C10.477 3 10.0624 3 9.70951 3.13878C9.39792 3.26132 9.12208 3.46013 8.90729 3.71698C8.66405 4.00784 8.53292 4.40125 8.27064 5.18807L8 6M18 6V16.2C18 17.8802 18 18.7202 17.673 19.362C17.3854 19.9265 16.9265 20.3854 16.362 20.673C15.7202 21 14.8802 21 13.2 21H10.8C9.11984 21 8.27976 21 7.63803 20.673C7.07354 20.3854 6.6146 19.9265 6.32698 19.362C6 18.7202 6 17.8802 6 16.2V6M14 10V17M10 10V17" stroke="#BF6CCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                <div style="display: inline; margin-left: 0.3vw; color: #000;">Clear</div>
+                <div style="display: inline; margin-left: 0.3vw; color: #000; font-size: 1vw;">Clear</div>
             </div>
             <!-- words -->
             <div style="display: inline-flex; flex-direction: row; align-content: center; justify-content: center;">
 
                 <div id="words" class="textarea-words" style="display: inline-flex; flex-direction: row; align-items: center; justify-content: center; ">
-                    <div id="words-context">Words: 0/200</div>
+                    <div id="words-context" style="font-size: 1vw;">Words: 0/200</div>
                 <svg style="margin: 0 0.4vw;"  width="1vw" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
 	 viewBox="0 0 302.967 302.967" xml:space="preserve">
 <g>
@@ -262,7 +213,7 @@ Please type at least <br> 50 words
 </svg>
                 </div>
                 <!-- submit -->
-            <div id="submit-btn" class="submit-btn" style="text-align: center; display: inline;">Submit</div>
+            <div id="submit-btn" class="submit-btn" style="text-align: center; display: inline; font-size: 1vw;">Submit</div>
             </div>
         </div>
 
@@ -342,104 +293,7 @@ Please type at least <br> 50 words
         
         
 
+        <script src="../static/js/main.js"></script>
 </body>
-<script>
-    // textarea event
-        const paste = document.getElementById("paste");
-        const sample = document.getElementById("sample");
-        const mainBox = document.getElementById("mainBox");
-        const destination = document.getElementById("outbox");
-        const words = document.getElementById("words")
-        const words_context = document.getElementById("words-context")
-        const mainBg = document.getElementById("mainBg");
-        const alertBox = document.getElementById("alert");
-        paste.addEventListener("click", ()=>{
-            navigator.clipboard
-            .readText()
-            .then((clipText) => {
-                destination.innerText = clipText;
-                destination.classList.remove("hidden")
-                words.classList.remove("textarea-words")
-                mainBox.classList.add("hidden")
-                words_context.innerText=`Words: ${countWordsUsingReplace(destination.value)}/200`
-
-            })
-        })
-        sample.addEventListener("click", ()=>{
-                destination.innerText = "Hello from the Revel";
-                destination.classList.remove("hidden");
-                words.classList.remove("textarea-words")
-                mainBox.classList.add("hidden")
-                words_context.innerText=`Words: ${countWordsUsingReplace(destination.value)}/200`
-
-        })
-        mainBg.addEventListener("click", ()=>{
-                destination.classList.remove("hidden");
-                words.classList.remove("textarea-words")
-                mainBox.classList.add("hidden")
-                destination.focus()
-        })
-     
-    function countWordsUsingReplace(str) {
-    // Replace multiple spaces, newlines, and tabs with a single space
-    const normalizedStr = str.replace(/\s+/g, ' ').trim();
-    // Split the string by a single space and count the resulting words
-    return normalizedStr === '' ? 0 : normalizedStr.split(' ').length;
-}
-    
-
-    // clear Btn
-    const clear = document.getElementById("clear-btn")
-    clear.addEventListener("click", ()=>{
-        destination.innerText="";
-        mainBox.classList.remove("hidden");
-        words.classList.add("textarea-words")
-        destination.classList.add("hidden");
-        words_context.innerText="Words: 0/200"
-        document.getElementById("response").classList.add("hidden")
-        
-    })
-    // words
-    const inputHandler = function (e){
-        const value  = e.target.value.toString();
-        words_context.innerText=`Words: ${countWordsUsingReplace(destination.value)}/200`
-        
-        
-    }
-    destination.addEventListener("input", inputHandler);
-    destination.addEventListener("propertychange", inputHandler)
-
-
-    // Submit btn
-    const submit = document.getElementById("submit-btn");
-    
-    submit.addEventListener("click", ()=> {
-        if(countWordsUsingReplace(destination.value) > 3){
-            // sending api call
-            document.getElementById("response").classList.remove("hidden")
-        }
-        else{
-            console.log("yo")
-            alertBox.classList.remove("alert-hide")
-            alertBox.classList.add("alert-show")
-            setTimeout(()=>{
-                alertBox.classList.add("alert-hide")
-                alertBox.classList.remove("alert-show")
-            },2000)
-        }
-    })
-    
-    // fetching info of client
-   
-    fetch("https://ipinfo.io/json").then(
-                (response) => response.json()).then(
-                (response) => {
-                document.getElementById("location").innerText = `Location: ${response.country}, ${response.region}, ${response.city}`;
-    })
-    
-</script>
-
-
-   
 </html>
-<!-- AIzaSyAdPtHRaZof6eVuUFi1roYBkECsVMaSI9w -->
+

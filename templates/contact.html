@@ -3,102 +3,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact with Spam Detector</title>
+    <link rel="stylesheet" href="../static/css/style.css">
     <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
             body{
-                margin: 0;
-                background-image: url("../images/mainHero.png");
-                font-weight: 500;
-                font-family: Inter, sans-serif;
+                background-image: url("{{ main_img }}");
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: cover;
-                color: #1C385D;
-            }
-            .bg-image{
-                position: absolute;
-                width: 100%;
-                min-width: 320px;
-                opacity: 0.6;
-                z-index: -1;
-            }
-            .nav-context{
-                transition: all 0.3s linear;
-                cursor: pointer;
-                padding: 0.2vw 0.8vw;
-                border-radius: 5px;
-                color: #1C385D;
-                text-decoration: none;
-            }
-            .nav-context:hover{
-                    background-color: #D6D3E0;
-            }
-            .log-btn{
-                padding: 0.6vw 1.2vw;
-                cursor: pointer;
-                border: 0.02vw #000 solid;
-                border-radius: 0.3vw;
-                color: #1C385D;
-                background-color: white;
-                transition: all 0.3s linear;
-            }
-            .log-btn:hover{
-                background-color: #D9DDE5;
-            }
-            .sign-btn{
-                padding: 0.6vw 1.2vw;
-                cursor: pointer;
-                border-radius: 0.3vw;
-                background-color: #1B2F4D;
-                color: white;
-                margin-left: 1vw;
-                transition: all 0.3s linear;
-            }
-            .sign-btn:hover{
-                background-color: #465472;
-            }  
-            .footer-items{
-                cursor: pointer;
-                opacity: 80%;
-                transition: all 0.2s linear;
-            }
-            .footer-items:hover{
-                opacity: 100%;
                 
             }
-            .svg-icons{
-                transition: all 0.2s linear;
-                cursor: pointer;
-            }
-            .svg-icons:hover{
-                transform: scale(110%);
-            }
-            .contact-form{
-                background-color: #fff;
-                border: none;
-                width: 24vw;
-                padding: 1vw;
-                border-radius: 0.5vw;
-                resize: none;
-
-            }
-            .contact-form:focus{
-                outline: none;
-            }
-            .contact-textarea:placeholder-shown{
-                font-family: Inter, sans-serif;
-            }
-            .submit-btn{
-                padding: 0.6vw 1.2vw;
-                cursor: pointer;
-                border-radius: 0.3vw;
-                background-color: #BF6CCF;
-                color: #fff;
-                transition: all 0.3s linear;
-            }
-            .submit-btn:hover{
-                background-color: #BD7FE4;
-            }
+            
     </style>
 </head>
 <body >
@@ -109,10 +24,10 @@
                             <!-- navbar -->
         <nav style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; border-bottom: 0.02vw #00000042 solid; padding: 1.2vw 2vw; user-select:none ;">
         <!-- logo -->
-        <a href="index.html" style="font-size: 1.7vw; font-weight: 600; font-family: Inter, sans-serif; cursor: pointer; text-decoration: none; color: #1C385D;">Spam Detector</a>
+        <a href="/" style="font-size: 1.7vw; font-weight: 600; font-family: Inter, sans-serif; cursor: pointer; text-decoration: none; color: #1C385D;">Spam Detector</a>
         <!-- context -->
         <div style="display: flex; flex-direction: row; font-size: 1vw; font-weight: 600;">
-            <a href="aboutUs.html" style="margin-right: 1vw;" class="nav-context">About</a>
+            <a href="/about" style="margin-right: 1vw;" class="nav-context">About</a>
             <div style="padding: 0.2vw 0.8vw; border-radius: 5px; background-color: #1C385D; color: white;">Contact</div>
         </div>
         <!-- btn -->
@@ -125,7 +40,7 @@
                                         <!-- Contact -->
         <section id="contact" style="padding: 7vw 5vw; display: flex; flex-direction: row; justify-content: space-between;" >
             <!-- imgage -->
-            <img src="../images/contact.webp" alt="" style="width: 40vw;">
+            <img src="{{ img_contact }}" alt="" style="width: 40vw;">
             <!-- form -->
             <div style="width: 40vw; display: flex; flex-direction: column; align-items: center;">
                 <div style="font-size: 3vw; font-weight: 600;">Contact Us</div>
@@ -134,7 +49,7 @@
                     <input type="text" name="" id="" class="contact-form" placeholder="Name" style="margin-top: 2vw;">
                     <input type="text" name="" id="" class="contact-form" placeholder="Email" style="margin-top: 1vw;">
                     <textarea rows="10"  class="contact-form contact-textarea" placeholder="Message" style="margin-top: 1vw;"></textarea>
-                    <button class="submit-btn" style="margin-left: auto; margin-top: 1.5vw; text-align: center; display: inline; border: none;">Submit</button>
+                    <button class="submit-btn" style="margin-left: auto; margin-top: 1.5vw; text-align: center; display: inline; border: none; font-size: 1vw;">Submit</button>
                 </form>
             </div>
 
