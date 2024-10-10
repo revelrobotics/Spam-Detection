@@ -32,8 +32,7 @@
         </div>
         <!-- btn -->
         <div style="display: flex; flex-direction: row; font-size: 0.7vw;">
-            <div class="log-btn">Log In</div>
-            <div class="sign-btn">Sign Up</div>
+            <div class="sign-btn" id="loggout-btn">Log out</div>
         </div>
         </nav>
 
@@ -128,6 +127,10 @@
     </div>    
 </body>
 <script >
+    // auth check
+    if(!localStorage.getItem("tokken")){
+    window.location.href = window.location.origin + "/login"
+    }
     // contact form submission
 const contact_name = document.getElementById("contact_name")
 const contact_email = document.getElementById("contact_email")
@@ -167,6 +170,11 @@ contact_submit.addEventListener("click", ()=> {
                     }
                 })
     }
+})
+
+document.getElementById("loggout-btn").addEventListener("click", ()=> {
+    window.localStorage.removeItem("tokken")
+    window.location.href = window.location.href
 })
 </script>
 

@@ -1,3 +1,4 @@
+
 // auth
 const {pathname} = window.location;
 if (pathname == "/login" || pathname == "/signup" || pathname == "/forgetpassword"){
@@ -14,8 +15,14 @@ else{
         window.location.href = window.location.href + "login"
     }
     else{
-        
-        
+        fetch('/protected', {
+            headers: {Authorization : `Bearer ${window.localStorage.getItem("tokken")}`}
+        }).then(res=> {
+            if (res.status !== 200){
+                window.localStorage.removeItem("tokken")
+                window.location.href = window.location.href + "login"
+            }
+        })
     }
 }
 // Log in forms
@@ -40,14 +47,14 @@ log_btn.addEventListener("click", ()=>{
                 password: pass.value
             })
         }).then(res=> {
-            if (res.status == 401){
+            if (res.status !== 200 ){
                 error.classList.remove("hidden")
                 error.innerText = "Email or Password is Inncorrect"
             }
             else{
                 res.json().then(data=>{
                     if(res.status == 200){
-                        localStorage.setItem("tokken", data)
+                        localStorage.setItem("tokken", data.access_token)
                         window.location.href = window.location.origin + "/"
                     }
                 }
@@ -85,10 +92,14 @@ else if(pathname === '/signup'){
                 error.classList.remove("hidden")
                 error.innerText = "Email or Password is Inncorrect"
             }
+           else if (res.status == 409){
+                error.classList.remove("hidden")
+                error.innerText = "This Email is already exist!"
+            }
             else{
                 res.json().then(data=>{
                     if(res.status == 200){
-                        localStorage.setItem("tokken", data)
+                        localStorage.setItem("tokken", data.access_token)
                         window.location.href = window.location.origin + "/"
                     }
                 }
@@ -132,8 +143,8 @@ else if(pathname === '/forgetpassword'){
                     }
                     else{
                         res.json().then(data=>{
-                            if(res.status == 200){
-                                localStorage.setItem("tokken", data)
+                            if(res.status == 201){
+                                localStorage.setItem("tokken", data.access_token)
                                 window.location.href = window.location.origin + "/"
                             }
                         }
@@ -234,13 +245,32 @@ submit.addEventListener("click", ()=> {
         // sending fetch request ot backend
         fetch('/submit', {
             method: "POST",
-            headers: {"Content-Type": "application/json"},
+            headers: {"Content-Type": "application/json", Authorization : `Bearer ${window.localStorage.getItem("tokken")}`},
             body: JSON.stringify({text: destination.value})
-        }).then(res=> res.json()).then(data=>{
-            document.getElementById("response-ans").innerText = data
-            document.getElementById("response").classList.remove("hidden")
-        }
-        )
+        }).then(res=> {
+            if(res.status == 400){
+                window.localStorage.removeItem("tokken")
+                window.location.href = window.location.href + "login"
+            }
+            else if(res.status == 200){
+                res.json().then(data=>{
+                    window.location.hash = "outbox"
+                    document.getElementById("response-ans").innerHTML = `<span style="font-weight: 700;">Too Bad!</span> It's a <span style="font-weight: 700; color: #FD1803;">Spam</span> and it's coming from`
+                    document.getElementById("response").classList.remove("hidden")
+                    document.getElementById("location").style = "display: block"
+                }
+                )
+            }
+            else if(res.status == 300){
+                res.json().then(data=>{
+                    window.location.hash = "outbox"
+                    document.getElementById("response-ans").innerHTML = `<span style="font-weight: 700;">Hooray!</span> It's not a <span style="font-weight: 700; color: #5084FB;">Spam</span>`
+                    document.getElementById("location").style = "display: none"
+                    document.getElementById("response").classList.remove("hidden")
+                }
+                )
+            }
+        })
     }
     else{
         alertBox.classList.remove("alert-hide")
@@ -264,7 +294,7 @@ submit.addEventListener("click", ()=> {
 fetch("https://ipinfo.io/json").then(
             (response) => response.json()).then(
             (response) => {
-            document.getElementById("location").innerText = `Location: ${response.country}, ${response.region}, ${response.city}`;
+            document.getElementById("location").innerText = `${response.country}, ${response.region}, ${response.city}`;
 }).catch(err=> console.log(err))
 
 
@@ -291,7 +321,7 @@ filePicker.onchange =  ()=>{
     // By lines
     
     var lines = text.split('\n');
-    console.log(lines)
+    
     for (var line = 0; line < lines.length; line++) {
         if(result === "")
             result += lines[line].split('\r')[0]

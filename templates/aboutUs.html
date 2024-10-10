@@ -22,8 +22,8 @@
     </div>
     <!-- btn -->
     <div style="display: flex; flex-direction: row; font-size: 0.7vw;">
-        <div class="log-btn">Log In</div>
-        <div class="sign-btn">Sign Up</div>
+        
+        <div class="sign-btn" id="loggout-btn">Log out</div>
     </div>
     </nav>
 
@@ -466,6 +466,9 @@
                                 
 </body>
 <script>
+   if(!localStorage.getItem("tokken")){
+    window.location.href = window.location.origin + "/login"
+    }
     // card Dom mani
 const card1 = document.getElementById("about-card-1")
 const card2 = document.getElementById("about-card-2")
@@ -516,6 +519,9 @@ card4.addEventListener("click", ()=> {
         card4.classList.add("hide-card-context")
     }
 })
-
+document.getElementById("loggout-btn").addEventListener("click", ()=> {
+    window.localStorage.removeItem("tokken")
+    window.location.href = window.location.href
+})
 </script>
 </html>
