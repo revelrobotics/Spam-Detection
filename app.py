@@ -1,6 +1,6 @@
-from flask import Flask, render_template, jsonify, request
-
-
+from flask import Flask, render_template, jsonify, request, Response
+from inference import predict
+import json
 app = Flask(__name__)
 
 # home Page
@@ -9,19 +9,49 @@ def homePage():
     return render_template('index.html', main_img="./static/images/mainHero.png")
 
 # login page
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def logPage():
-    return render_template('index.html', main_img="./static/images/mainHero.png", auth="log")
+    if request.method == 'GET':
+        return render_template('index.html', main_img="./static/images/mainHero.png", auth="log")
+    elif request.method == 'POST':
+        data = request.get_json()
+        print(data)
+        response = Response(
+        response=   json.dumps("hello from the backend"),
+        status=200,
+        mimetype='application/json'
+    )
+    return response
 
 # sign up Page
-@app.route("/signup")
+@app.route("/signup", methods=['GET', 'POST'])
 def signupPage():
-    return render_template('index.html', main_img="./static/images/mainHero.png", auth="signup")
+    if request.method == 'GET':
+        return render_template('index.html', main_img="./static/images/mainHero.png", auth="signup")
+    elif request.method == 'POST':
+        data = request.get_json()
+        print(data)
+        response = Response(
+        response=  json.dumps("hello from the backend"),
+        status=200,
+        mimetype='application/json'
+    )
+    return response
 
 # Forget password
-@app.route("/forgetpassword")
+@app.route("/forgetpassword", methods=['GET', 'POST'])
 def forgetPass(): 
-    return render_template('index.html', main_img="./static/images/mainHero.png", auth="forgetpassword")
+    if request.method == 'GET':
+        return render_template('index.html', main_img="./static/images/mainHero.png", auth="forgetpassword")
+    elif request.method == 'POST':
+        data = request.get_json()
+        print(data)
+        response = Response(
+        response=  json.dumps("hello from the backend"),
+        status=200,
+        mimetype='application/json'
+    )
+    return response
 # About Page
 @app.route("/about")
 def about():
@@ -29,16 +59,21 @@ def about():
         img_about="./static/images/about.webp", img_image_1="./static/images/image 1.webp", img_image_2="./static/images/image 2.webp", img_image_3="./static/images/image 3.webp" )
 
 # Contact Page
-@app.route('/contact')
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
-    return render_template('contact.html', main_img="./static/images/mainHero.png", img_contact="./static/images/contact.webp")
+    if request.method == 'GET':
+        return render_template('contact.html', main_img="./static/images/mainHero.png", img_contact="./static/images/contact.webp")
+    elif request.method == 'POST':
+        data = request.get_json()
+        print(data)
+        response = Response(
+        response=  json.dumps("hello from the backend"),
+        status=200,
+        mimetype='application/json'
+    )
+    return response
 
-# submit btn request
-@app.route("/submit", methods=['POST'])
-def submit():
-    data = request.get_json()
-    print([data["text"]])
-    return jsonify("hello from the backend")
+
 
 if __name__ == '__main__':
     app.run()

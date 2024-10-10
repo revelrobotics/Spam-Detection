@@ -24,25 +24,26 @@ Please type at least <br> 10 words
     <b>
         <div style="position: fixed; z-index: 40; background-color: #fff; width: 25vw;  padding: 2vw 4vw; left: 50%; top: 10%; transform: translate(-50%); display: flex; flex-direction: column; align-items: center; justify-content: centers; border-radius: 0.5vw;">
             <div style="font-size: 2vw; font-weight: 700;">Log In</div>
+            <div id="error-log" style="font-size: 1vw; margin-top: 1vw; color: #BF6CCF;" class="hidden"></div>
             <!-- form -->
-            <form action="" style="margin-top: 2vw;">
+            <div style="margin-top: 2vw;">
                 <div style="display: flex; flex-direction: column;">
                     <div style="font-size: 1vw; margin-bottom: 0.5vw;">Email</div>
-                    <input type="text" class="auth-input" placeholder="johnsmith@gmail.com">
+                    <input type="text" class="auth-input" placeholder="johnsmith@gmail.com" id="email">
                 </div>
                 <div style="display: flex; flex-direction: column; margin-top: 1vw;">
                     <div style="font-size: 1vw; margin-bottom: 0.5vw;">Password</div>
-                    <input type="text" class="auth-input" placeholder="**********">
+                    <input type="password" class="auth-input" placeholder="**********" id="password">
                         <div class="log-forg">
                             <a href="/forgetpassword">Forget Password</a>
                         </div>
                 </div>
-                <button class="auth-btn">Log In</button>
+                <button class="auth-btn" id="log-btn">Log In</button>
                 <div style="width: 100%; text-align: center; margin-top: 0.5vw;">
                     <a href="/signup" class="auth-log-text">Don't have an account. <span>Sgin Up</span></a>
                 </div>
-                <p class="log-text">By clicking on log, you agree to our <span>Terms of Services</span> and <span>Privacy Policy</span>.</p>
-            </form>
+                <p class="log-text">By clicking on log In, you agree to our <span>Terms of Services</span> and <span>Privacy Policy</span>.</p>
+            </div>
         
         </div>
     </b>
@@ -52,26 +53,27 @@ Please type at least <br> 10 words
     <b>
         <div style="position: fixed; z-index: 40; background-color: #fff; width: 25vw;  padding: 2vw 4vw; left: 50%; top: 10%; transform: translate(-50%); display: flex; flex-direction: column; align-items: center; justify-content: centers; border-radius: 0.5vw;">
             <div style="font-size: 2vw; font-weight: 700;">Sign Up</div>
+            <div id="error-log" style="font-size: 1vw; margin-top: 1vw; color: #BF6CCF;" class="hidden">hello from the Rvel</div>
             <!-- form -->
-            <form action="" style="margin-top: 2vw;">
+            <div style="margin-top: 2vw;">
                 <div style="display: flex; flex-direction: column;">
                     <div style="font-size: 1vw; margin-bottom: 0.5vw;">Username</div>
-                    <input type="text" class="auth-input" placeholder="John Smith">
+                    <input type="text" class="auth-input" placeholder="John Smith" id="username">
                 </div>
                 <div style="display: flex; flex-direction: column; margin-top: 1vw;">
-                    <div style="font-size: 1vw; margin-bottom: 0.5vw;">Email</div>
-                    <input type="text" class="auth-input" placeholder="johnsmith@gmail.com">
+                    <div style="font-size: 1vw; margin-bottom: 0.5vw;" >Email</div>
+                    <input type="email" class="auth-input" placeholder="johnsmith@gmail.com" id="email">
                 </div>
                 <div style="display: flex; flex-direction: column; margin-top: 1vw;">
-                    <div style="font-size: 1vw; margin-bottom: 0.5vw;">Password</div>
-                    <input type="text" class="auth-input" placeholder="**********">
+                    <div style="font-size: 1vw; margin-bottom: 0.5vw;" >Password</div>
+                    <input type="password" class="auth-input" placeholder="**********" id="password" >
                 </div>
-                <button class="auth-btn">Sign In</button>
+                <button class="auth-btn" id="sign-btn">Sign In</button>
                 <div style="width: 100%; text-align: center; margin-top: 0.5vw;">
                     <a href="/login" class="auth-log-text">Alread have an account. <span>log In</span></a>
                 </div>
-                <p class="log-text">By clicking on log, you agree to our <span>Terms of Services</span> and <span>Privacy Policy</span>.</p>
-            </form>
+                <p class="log-text">By clicking on Sign Up, you agree to our <span>Terms of Services</span> and <span>Privacy Policy</span>.</p>
+            </div>
         
         </div>
     </b>
@@ -80,24 +82,25 @@ Please type at least <br> 10 words
     <b>
         <div style="position: fixed; z-index: 40; background-color: #fff; width: 25vw;  padding: 2vw 4vw; left: 50%; top: 10%; transform: translate(-50%); display: flex; flex-direction: column; align-items: center; justify-content: centers; border-radius: 0.5vw;">
             <div style="font-size: 2vw; font-weight: 700;">Reset Passowrd</div>
+            <div id="error-log" style="font-size: 1vw; margin-top: 1vw; color: #BF6CCF;" class="hidden">hello from the Rvel</div>
             <!-- form -->
-            <form action="" style="margin-top: 2vw;">
+            <div action="" style="margin-top: 2vw;">
                 <div style="display: flex; flex-direction: column;">
                     <div style="font-size: 1vw; margin-bottom: 0.5vw;">Email</div>
-                    <input type="text" class="auth-input" placeholder="johnsmith@gmail.com">
+                    <input type="text" class="auth-input" placeholder="johnsmith@gmail.com" id="email">
                 </div>
                 <div style="display: flex; flex-direction: column; margin-top: 1vw;">
                     <div style="font-size: 1vw; margin-bottom: 0.5vw;">New Passowrd</div>
-                    <input type="text" class="auth-input" placeholder="**********">
+                    <input type="password" class="auth-input" placeholder="**********" id="password">
                 </div>
                 <div style="display: flex; flex-direction: column; margin-top: 1vw;">
                     <div style="font-size: 1vw; margin-bottom: 0.5vw;">Confirm Password</div>
-                    <input type="text" class="auth-input" placeholder="**********">
+                    <input type="password" class="auth-input" placeholder="**********" id="confim-pass">
                 </div>
-                <button class="auth-btn">Submit</button>
+                <button class="auth-btn" id="forget-btn">Submit</button>
                 
                 
-            </form>
+            </div>
         
         </div>
     </b>
@@ -116,7 +119,7 @@ Please type at least <br> 10 words
 </div>
 <!-- btn -->
 <div style="display: flex; flex-direction: row; font-size: 0.7vw;">
-    <div class="sign-btn">Log out</div>
+    <div class="sign-btn" id="loggout-btn">Log out</div>
 </div>
 </nav>
 
@@ -132,7 +135,7 @@ Please type at least <br> 10 words
             <div style="margin-top: 1vw; font-size: 1vw;">Check your message for Spam</div>
         </div>
         <!-- textarea -->
-        <div id="mainBox" style="position: relative; width: 60%; height: 30vw; overflow: hidden;  background-color: #fff; margin-top: 3vw; border-radius:  0.5vw; font-size: 0.8vw; padding: 1vw 1.5vw; transition: all 0.3s linear;" class="text-area">
+        <div id="mainBox" style="position: relative; width: 60%; height: 20vw; overflow: hidden;  background-color: #fff; margin-top: 3vw; border-radius:  0.5vw; font-size: 0.8vw; padding: 1vw 1.5vw; transition: all 0.3s linear;" class="text-area ">
             <div id="mainBg" style="cursor: text; position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 10;"></div>
             <div id="box-container" style="display: flex; flex-direction: row; align-items: center;">
                 <div style="display: inline; opacity: 50%;">Type or</div>
@@ -154,7 +157,7 @@ Please type at least <br> 10 words
             </div>
             </div>
         </div>
-        <textarea style="width: 60%; height: 30vw;  background-color: #ffff; margin-top: 3vw; border-radius: 0.5vw; font-size: 0.8vw; padding: 1vw 1.5vw; transition: all 0.3s linear;" placeholder="Enter your text here" class="text-area hidden" rows="10" cols="100"  id="outbox"  ></textarea>
+        <textarea style="width: 60%; height: 20vw;  background-color: #ffff; margin-top: 3vw; border-radius: 0.5vw; font-size: 0.8vw; padding: 1vw 1.5vw; transition: all 0.3s linear; z-index: 20;" placeholder="Enter your text here" class="text-area hidden" rows="10" cols="100"  id="outbox"  ></textarea>
         
     </div>
 
@@ -168,7 +171,7 @@ Please type at least <br> 10 words
                 <path d="M8 5.00005C7.01165 5.00082 6.49359 5.01338 6.09202 5.21799C5.71569 5.40973 5.40973 5.71569 5.21799 6.09202C5 6.51984 5 7.07989 5 8.2V17.8C5 18.9201 5 19.4802 5.21799 19.908C5.40973 20.2843 5.71569 20.5903 6.09202 20.782C6.51984 21 7.07989 21 8.2 21H15.8C16.9201 21 17.4802 21 17.908 20.782C18.2843 20.5903 18.5903 20.2843 18.782 19.908C19 19.4802 19 18.9201 19 17.8V8.2C19 7.07989 19 6.51984 18.782 6.09202C18.5903 5.71569 18.2843 5.40973 17.908 5.21799C17.5064 5.01338 16.9884 5.00082 16 5.00005M8 5.00005V7H16V5.00005M8 5.00005V4.70711C8 4.25435 8.17986 3.82014 8.5 3.5C8.82014 3.17986 9.25435 3 9.70711 3H14.2929C14.7456 3 15.1799 3.17986 15.5 3.5C15.8201 3.82014 16 4.25435 16 4.70711V5.00005" stroke="#BF6CCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             <p style="display: inline; margin-left: 0.3vw; color: #000; font-size: 1vw;">Choose a File</p>
-            <input type="file" accept="text/plain" name="" id="picker" style="display: none;">
+            <input type="file"   accept="text/plain" name="" id="picker" style="display: none;">
         </div>
 
         <!-- btn 2 -->
@@ -222,23 +225,23 @@ Please type at least <br> 10 words
    <!-- response -->
     <div id="response" class="hidden" style="background-color: #fff; width: 58vw; margin: 1vw auto; padding: 0.5vw  2vw; display: flex; flex-direction: row; align-items: center; justify-content: space-between; border-radius: 0.3vw;">
         <div id="location">Location: Uk, England, London</div>
-        <div style="background-color: #BF6CCF; padding: 0.8vw 2vw; color: #fff; border-radius: 0.2vw; font-size: 1vw; font-weight: 700; ">
-            Spam
+        <div id="response-ans" style="background-color: #BF6CCF; padding: 0.8vw 2vw; color: #fff; border-radius: 0.2vw; font-size: 1vw; font-weight: 700; ">
+            Waiting
         </div>
     </div>
 
                                                 <!-- Footer -->
         <footer style="background-color: #F2F2F2; display: flex; flex-direction: row; justify-content: space-between; margin-top: 10vw; padding:3vw 5vw 5vw;">
             <!-- logo -->
-            <a href="index.html" style="font-size: 1.7vw; font-weight: 600; font-family: Inter, sans-serif; cursor: pointer; text-decoration: none; color: #1C385D;">Spam Detector</a>
+            <a href="/" style="font-size: 1.7vw; font-weight: 600; font-family: Inter, sans-serif; cursor: pointer; text-decoration: none; color: #1C385D;">Spam Detector</a>
             <!-- item 1 -->
             <div>
                 <!-- heading -->
                 <div style="font-size: 2vw; font-weight: 600;">Resources</div>
                 <!-- items -->
                 <div style="font-size: 1vw; margin-top: 0.4vw; display: flex; flex-direction: column; align-items: start; justify-content: start; ">
-                    <a href="aboutUs.html" class="footer-items" style="text-decoration: none; color: #000;">About</a>
-                    <a href="contact.html" style="margin-top: 0.4vw; text-decoration: none; color: #000;" class="footer-items">Contact</a>
+                    <a href="/about" class="footer-items" style="text-decoration: none; color: #000;">About</a>
+                    <a href="/contact" style="margin-top: 0.4vw; text-decoration: none; color: #000;" class="footer-items">Contact</a>
                     
                 </div>
             </div>
@@ -257,7 +260,7 @@ Please type at least <br> 10 words
         </footer>
         <div style="background-color: #F2F2F2; padding:0 5vw; ">
             <div style="display: flex; flex-direction: row; justify-content: space-between; border-top: 0.1vw #0000004b solid; margin-top: 4vw;">
-                <p style="font-size: 1vw;">2024 © <a href="index.html" style="text-decoration: none; color: #000; font-weight: 800; color: #000;">Spam Detector</a> All Rights Reserved. </p>
+                <p style="font-size: 1vw;">2024 © <a href="/" style="text-decoration: none; color: #000; font-weight: 800; color: #000;">Spam Detector</a> All Rights Reserved. </p>
             <div style="display: flex; flex-direction: row; justify-content: space-between;">
                                 <!-- insta -->
                 <svg width="1.7vw" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-icons">
