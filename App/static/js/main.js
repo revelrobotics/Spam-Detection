@@ -3,22 +3,19 @@ const body_form = document.getElementById("outbox")
 const footer_form = document.getElementById("footer-form")
 const submit_btn = document.getElementById("submit-btn")
 submit_btn.addEventListener("click", () => {
-    email_form.value = ""
-    footer_form.value = ""
-    console.log(body_form.value)
     fetch('/submit', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: body_form.value })
+        body: JSON.stringify({
+            email: email_form.value,
+            body: body_form.value,
+            footer: footer_form.value
+        })
     }).then(res => {
-        if (res.status == 400) {
-            window.localStorage.removeItem("tokken")
-            window.location.href = window.location.href + "login"
-        }
-        else if (res.status == 200) {
+        if (res.status == 200) {
             res.json().then(data => {
                 window.location.hash = "outbox"
-                document.getElementById("response-ans").innerHTML = `<span style="font-weight: 700;">Too Bad!</span> It's a <span style="font-weight: 700; color: #FD1803;">Spam.</span> `
+                document.getElementById('result').innerHTML = data.content
                 document.getElementById("response").classList.remove("hidden")
                 document.getElementById("location").style = "display: block"
             }
@@ -27,7 +24,7 @@ submit_btn.addEventListener("click", () => {
         else if (res.status == 300) {
             res.json().then(data => {
                 window.location.hash = "outbox"
-                document.getElementById("response-ans").innerHTML = `<span style="font-weight: 700;">Hooray!</span> It's not a <span style="font-weight: 700; color: #5084FB;">Spam</span>`
+                document.getElementById('result').innerHTML = data.content;
                 document.getElementById("location").style = "display: none"
                 document.getElementById("response").classList.remove("hidden")
             }
