@@ -1,0 +1,161 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Spam Detector</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <style>
+        .shadow {
+            -webkit-box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.35);
+            -moz-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.35);
+            box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.35);
+        }
+    </style>
+</head>
+
+
+<body>
+    <!-- navbar -->
+    <nav
+        style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; border-bottom: 0.02vw #00000042 solid; padding: 1.2vw 2vw; user-select:none ;">
+        <!-- logo -->
+        <a href="/"
+            style="font-size: 1.7vw; font-weight: 600; font-family: Inter, sans-serif; cursor: pointer; text-decoration: none; color: #1C385D;">Spam
+            Detector</a>
+        <!-- context -->
+        <div style="display: flex; flex-direction: row; font-size: 1vw; font-weight: 600;">
+            <a href="/about" class="nav-context">About</a>
+            <a href="/contact" style="margin-left: 1vw;" class="nav-context">Contact</a>
+        </div>
+        <!-- btn -->
+        <div style="display: flex; flex-direction: row; font-size: 0.7vw;">
+            <a href="/login" class="sign-btn"
+                style="background-color:#F2F2F2; color: #1C385D; border: 0.1vw #1C385D solid; text-decoration: none;"
+                id="login">Log In</a>
+            <a href="/signup" class="sign-btn" style="color:#F2F2F2; background-color: #1C385D; text-decoration: none;"
+                id="signup">Sign Up</a>
+            <div class="sign-btn hidden" style="color:#F2F2F2; background-color: #1C385D;" id="loggout-btn">Log Out
+            </div>
+        </div>
+    </nav>
+
+
+    <div style="width: 100%; display: flex; justify-content: center; margin-top: 5vw">
+
+        <div class="shadow"
+            style="background-color: #fff; width: 25vw;  padding: 2vw 4vw; display: flex; flex-direction: column; align-items: center; justify-content: centers; border-radius: 0.5vw;">
+            <div style="font-size: 2vw; font-weight: 700;">Sign Up</div>
+            <div id="error-log" style="font-size: 1vw; margin-top: 1vw; color: #BF6CCF;" class="hidden">hello from the
+                Rvel</div>
+            <!-- form -->
+            <div style="margin-top: 2vw;">
+                <div style="display: flex; flex-direction: column;">
+                    <div style="font-size: 1vw; margin-bottom: 0.5vw;">Username</div>
+                    <input type="text" class="auth-input" placeholder="John Smith" id="username">
+                </div>
+                <div style="display: flex; flex-direction: column; margin-top: 1vw;">
+                    <div style="font-size: 1vw; margin-bottom: 0.5vw;">Email</div>
+                    <input type="email" class="auth-input" placeholder="johnsmith@gmail.com" id="email">
+                </div>
+                <div style="display: flex; flex-direction: column; margin-top: 1vw;">
+                    <div style="font-size: 1vw; margin-bottom: 0.5vw;">Password</div>
+                    <input type="password" class="auth-input" placeholder="**********" id="password">
+                </div>
+                <button class="auth-btn" id="sign-btn">Sign Up</button>
+                <div style="width: 100%; text-align: center; margin-top: 0.5vw;">
+                    <a href="/login" class="auth-log-text">Alread have an account. <span>log In</span></a>
+                </div>
+                <p class="log-text">By clicking on Sign Up, you agree to our <span>Terms of Services</span> and
+                    <span>Privacy Policy</span>.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Footer -->
+    <footer
+        style="background-color: #F2F2F2; display: flex; flex-direction: row; justify-content: space-between; margin-top: 10vw; padding:3vw 5vw 5vw;">
+        <!-- logo -->
+        <a href="/"
+            style="font-size: 1.7vw; font-weight: 600; font-family: Inter, sans-serif; cursor: pointer; text-decoration: none; color: #1C385D;">Spam
+            Detector</a>
+        <!-- item 1 -->
+        <div>
+            <!-- heading -->
+            <div style="font-size: 2vw; font-weight: 600;">Resources</div>
+            <!-- items -->
+            <div
+                style="font-size: 1vw; margin-top: 0.4vw; display: flex; flex-direction: column; align-items: start; justify-content: start; ">
+                <a href="/about" class="footer-items" style="text-decoration: none; color: #000;">About</a>
+                <a href="/contact" style="margin-top: 0.4vw; text-decoration: none; color: #000;"
+                    class="footer-items">Contact</a>
+
+            </div>
+        </div>
+        <!-- item2 -->
+        <div>
+            <!-- heading -->
+            <div style="font-size: 2vw; font-weight: 600;">Legal</div>
+            <!-- items -->
+            <div
+                style="font-size: 1vw; margin-top: 0.4vw; display: flex; flex-direction: column; align-items: start; justify-content: start;">
+
+                <div style="margin-top: 0.4vw;" class="footer-items">Privacy Policy</div>
+                <div style="margin-top: 0.4vw;" class="footer-items">Term of Services</div>
+            </div>
+        </div>
+
+    </footer>
+    <div style="background-color: #F2F2F2; padding:0 5vw; ">
+        <div
+            style="display: flex; flex-direction: row; justify-content: space-between; border-top: 0.1vw #0000004b solid; margin-top: 4vw;">
+            <p style="font-size: 1vw;">2024 © <a href="/"
+                    style="text-decoration: none; color: #000; font-weight: 800; color: #000;">Spam Detector</a> All
+                Rights Reserved. </p>
+            <div style="display: flex; flex-direction: row; justify-content: space-between;">
+                <!-- insta -->
+                <svg width="1.7vw" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-icons">
+                    <path
+                        d="M3 11C3 7.22876 3 5.34315 4.17157 4.17157C5.34315 3 7.22876 3 11 3H13C16.7712 3 18.6569 3 19.8284 4.17157C21 5.34315 21 7.22876 21 11V13C21 16.7712 21 18.6569 19.8284 19.8284C18.6569 21 16.7712 21 13 21H11C7.22876 21 5.34315 21 4.17157 19.8284C3 18.6569 3 16.7712 3 13V11Z"
+                        stroke="#222222" />
+                    <circle cx="16.5" cy="7.5" r="1.5" fill="#222222" />
+                    <circle cx="12" cy="12" r="3.5" stroke="#222222" />
+                </svg>
+                <!-- face -->
+                <svg class="svg-icons" style="margin-left: 0.5vw;" width="1.7vw" viewBox="-5 0 20 20" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+
+                    <defs>
+
+                    </defs>
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="Dribbble-Light-Preview" transform="translate(-385.000000, -7399.000000)" fill="#000000">
+                            <g id="icons" transform="translate(56.000000, 160.000000)">
+                                <path
+                                    d="M335.821282,7259 L335.821282,7250 L338.553693,7250 L339,7246 L335.821282,7246 L335.821282,7244.052 C335.821282,7243.022 335.847593,7242 337.286884,7242 L338.744689,7242 L338.744689,7239.14 C338.744689,7239.097 337.492497,7239 336.225687,7239 C333.580004,7239 331.923407,7240.657 331.923407,7243.7 L331.923407,7246 L329,7246 L329,7250 L331.923407,7250 L331.923407,7259 L335.821282,7259 Z"
+                                    id="facebook-[#176]">
+
+                                </path>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+                <!-- twitter -->
+                <svg class="svg-icons" style="margin-left: 0.5vw;" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                    width="1.7vw" viewBox="0 0 50 50">
+                    <path
+                        d="M 5.9199219 6 L 20.582031 27.375 L 6.2304688 44 L 9.4101562 44 L 21.986328 29.421875 L 31.986328 44 L 44 44 L 28.681641 21.669922 L 42.199219 6 L 39.029297 6 L 27.275391 19.617188 L 17.933594 6 L 5.9199219 6 z M 9.7167969 8 L 16.880859 8 L 40.203125 42 L 33.039062 42 L 9.7167969 8 z">
+                    </path>
+                </svg>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

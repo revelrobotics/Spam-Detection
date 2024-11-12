@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: #F1F5F9;
+    font-weight: 500;
+    font-family: Inter, sans-serif;
+    color: #1C385D;
+}
+
+.nav-context {
+    transition: all 0.3s linear;
+    cursor: pointer;
+    padding: 0.2vw 0.8vw;
+    border-radius: 5px;
+    color: #1C385D;
+    text-decoration: none;
+}
+
+.nav-context:hover {
+    background-color: #D6D3E0;
+}
+
+.log-btn {
+    padding: 0.6vw 1.2vw;
+    cursor: pointer;
+    border: 0.02vw #000 solid;
+    border-radius: 0.3vw;
+    color: #1C385D;
+    background-color: white;
+    transition: all 0.3s linear;
+}
+
+.log-btn:hover {
+    background-color: #D9DDE5;
+}
+
+.sign-btn {
+    padding: 0.6vw 1.2vw;
+    cursor: pointer;
+    border-radius: 0.3vw;
+
+
+    margin-left: 1vw;
+    transition: all 0.3s linear;
+}
+
+.sign-btn:hover {
+    background-color: #465472;
+}
+
+.text-area {
+    -webkit-box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.35);
+    -moz-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.35);
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.35);
+    resize: none;
+    border: none;
+    font-family: Inter;
+}
+
+.text-area:placeholder-shown {
+    font-family: Inter;
+}
+
+.text-area:focus {
+    outline: none;
+}
+
+.text-area-btn {
+    transition: all 0.3s linear;
+    background-color: #ffff;
+}
+
+.text-area-btn:hover {
+    background-color: #D9DDE5;
+
+}
+
+.submit-btn {
+    padding: 0.6vw 1.2vw;
+    cursor: pointer;
+    border-radius: 0.3vw;
+    background-color: #BF6CCF;
+    color: #fff;
+    transition: all 0.3s linear;
+}
+
+.submit-btn:hover {
+    background-color: #BD7FE4;
+}
+
+.bg-image {
+    position: absolute;
+    width: 100%;
+    min-width: 320px;
+    opacity: 0.6;
+    height: max-content;
+    z-index: -1;
+
+}
+
+.footer-items {
+    cursor: pointer;
+    opacity: 80%;
+    transition: all 0.2s linear;
+}
+
+.footer-items:hover {
+    opacity: 100%;
+
+}
+
+.svg-icons {
+    transition: all 0.2s linear;
+    cursor: pointer;
+}
+
+.svg-icons:hover {
+    transform: scale(110%);
+}
+
+.hidden {
+    display: none;
+}
+
+.textarea-words {
+    opacity: 50%;
+}
+
+.alert {
+    position: fixed;
+    z-index: 50;
+    background-color: #BF6CCF;
+    color: #fff;
+    margin: 3vw auto;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    padding: 1vw 2vw;
+    font-size: 1vw;
+    font-weight: 700;
+    transition: all 0.3s linear;
+
+}
+
+.alert-show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.alert-hide {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s linear;
+}
+
+
+
+.qna-card {
+    cursor: pointer;
+    background-color: #ffff;
+    transition: all 0.3s linear;
+}
+
+.qna-card:hover {
+    background-color: #e3e2e6;
+}
+
+.feed-card {
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.55);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.55);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.55);
+}
+
+.contact-form {
+    background-color: #fff;
+    border: none;
+    width: 24vw;
+    padding: 1vw;
+    border-radius: 0.5vw;
+    resize: none;
+    font-size: 1vw;
+
+}
+
+.contact-form:focus {
+    outline: none;
+}
+
+.contact-textarea:placeholder-shown {
+    font-family: Inter, sans-serif;
+    font-size: 1vw;
+}
+
+.submit-btn {
+    padding: 0.6vw 1.2vw;
+    cursor: pointer;
+    border-radius: 0.3vw;
+    background-color: #BF6CCF;
+    color: #fff;
+    transition: all 0.3s linear;
+}
+
+.submit-btn:hover {
+    background-color: #BD7FE4;
+}
+
+
+
+/* about card */
+.show-card-context .card-context {
+    max-height: 7vw;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.hide-card-context .card-context {
+    max-height: 0;
+    transition: max-height 0.3s linear;
+}
+
+.show-card-context .card-svg {
+    transform: rotate(90deg);
+    transition: transform 0.3s ease-in-out;
+}
+
+.hide-card-context .card-svg {
+    transform: rotate(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.auth-input {
+    background-color: #fff;
+    border: none;
+    width: 24vw;
+    padding: 1vw;
+    border-radius: 0.5vw;
+    resize: none;
+    font-size: 1vw;
+    border: 0.1vw #0000003a solid;
+}
+
+.auth-input:focus {
+    outline: none;
+}
+
+.auth-input:placeholder-shown {
+    font-family: Inter, sans-serif;
+    font-size: 1vw;
+}
+
+.auth-btn {
+    background-color: #CBCBCB;
+    color: #fff;
+    border: none;
+    width: 100%;
+    height: 3vw;
+    margin-top: 1.5vw;
+    font-size: 1vw;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 0.2vw;
+    transition: all 0.3s linear;
+}
+
+.auth-btn:hover {
+    background-color: #BF6CCF;
+}
+
+.log-forg {
+    width: 100%;
+    text-align: end;
+    margin-top: 0.5vw;
+    font-size: 0.85vw;
+
+}
+
+.log-forg a {
+    text-decoration: none;
+    color: #1C385D;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.3s linear;
+}
+
+.log-forg a:hover {
+    opacity: 1;
+}
+
+.log-text {
+    margin-top: 2vw;
+    font-size: 1vw;
+}
+
+.log-text span {
+    font-weight: 700;
+    color: #2653BB;
+    cursor: pointer;
+}
+
+.auth-log-text {
+    width: 100%;
+    font-size: 0.9vw;
+    margin-top: 0.5vw;
+    color: #1C385D;
+    text-decoration: none;
+}
+
+.auth-log-text span {
+    font-weight: 700;
+    cursor: pointer;
+    border-bottom: 0.1vw #00000000 solid;
+    transition: all 0.3s linear;
+}
+
+.auth-log-text span:hover {
+    color: #000;
+    border-bottom: 0.1vw #000 solid;
+}

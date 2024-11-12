@@ -1,0 +1,352 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Spam Detector</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+
+                        <!-- navbar -->
+    <nav style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; border-bottom: 0.02vw #00000042 solid; padding: 1.2vw 2vw; user-select:none ;">
+    <!-- logo -->
+    <a href="/" style="font-size: 1.7vw; font-weight: 600; font-family: Inter, sans-serif; cursor: pointer; text-decoration: none; color: #1C385D;">Spam Detector</a>
+    <!-- context -->
+    <div style="display: flex; flex-direction: row; font-size: 1vw; font-weight: 600;">
+        <div style="padding: 0.2vw 0.8vw; border-radius: 5px; background-color: #D6D3E0;">About</div>
+        <a href="/contact" style="margin-left: 1vw;" class="nav-context">Contact</a>
+    </div>
+    <!-- btn -->
+    <div style="display: flex; flex-direction: row; font-size: 0.7vw;">
+        <a href="/login" class="sign-btn" style="background-color:#F2F2F2; color: #1C385D; border: 0.1vw #1C385D solid; text-decoration: none;" id="login">Log In</a>
+        <a href="/signup" class="sign-btn" style="color:#F2F2F2; background-color: #1C385D; text-decoration: none;" id="signup">Sign Up</a>
+        <div class="sign-btn hidden"  style="color:#F2F2F2; background-color: #1C385D;" id="loggout-btn">Log Out</div>
+    </div>
+    </nav>
+
+
+                        <!-- hero -->
+        <section id="hero" style="margin-top: 9vw;">
+            <!-- context -->
+            <div style="text-align: center;">
+                    <!-- icons -->
+                <div style="display: flex; align-items: center; justify-content: center;">
+                    <svg width="1.5vw" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <rect width="40" height="40" fill="url(#pattern0_11_264)"/>
+                        <defs>
+                        <pattern id="pattern0_11_264" patternContentUnits="objectBoundingBox" width="1" height="1">
+                        <use xlink:href="#image0_11_264" transform="scale(0.01)"/>
+                        </pattern>
+                        <image id="image0_11_264" width="100" height="100" xlink:href="data:image/png;base64,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"/>
+                        </defs>
+                        </svg>
+                        <svg style="margin-left: 0.4vw;"  width="1.5vw"viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <rect width="40" height="40" fill="url(#pattern0_11_264)"/>
+                            <defs>
+                            <pattern id="pattern0_11_264" patternContentUnits="objectBoundingBox" width="1" height="1">
+                            <use xlink:href="#image0_11_264" transform="scale(0.01)"/>
+                            </pattern>
+                            <image id="image0_11_264" width="100" height="100" xlink:href="data:image/png;base64,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"/>
+                            </defs>
+                            </svg>
+                            <svg style="margin-left: 0.4vw;" width="1.5vw"viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <rect width="40" height="40" fill="url(#pattern0_11_264)"/>
+                                <defs>
+                                <pattern id="pattern0_11_264" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                <use xlink:href="#image0_11_264" transform="scale(0.01)"/>
+                                </pattern>
+                                <image id="image0_11_264" width="100" height="100" xlink:href="data:image/png;base64,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"/>
+                                </defs>
+                                </svg>
+                                <svg style="margin-left: 0.4vw;" width="1.5vw"viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect width="40" height="40" fill="url(#pattern0_11_264)"/>
+                                    <defs>
+                                    <pattern id="pattern0_11_264" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_11_264" transform="scale(0.01)"/>
+                                    </pattern>
+                                    <image id="image0_11_264" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAGIElEQVR4nO2da6hUVRTHd+83FT2I6kMlvYOILIqMHtCDwB4fkggqCNJI7J61RtM+XYMww/pgoOGHCuxT0521j94eRJlf7EvdSO9Za66PUjKpECvK8pU5sY6j1s28d2bOzJ69Z//g/+XC5azH2Wf22XvtdYyJRCKRSCQSiUQikUjEV5ZMHTrOAj9KyItUFag+on9zbVdPUimtPpdQvrAotX8J5PPyjPXnuLav5yBk+k8y6iKUAdf29RQpynX/l4wDSpPhia7t7BkI5c2xEmKB33BtZ0+wHNeebZF3jJUQQt6lvzOu7Q0eQp4z5ug4NEpmu7Y3aMoP144h4I3jTQihfKv/49ruYEmh+tC4R8chPeja7mCxICsaTQgBf+La7iChvuxKQt7XxAipVUrVa1zbHxwWeHEzyajPuBa5tj8o0lkjpxHyr80mxKJsL8/+5nTXfgQDofS1kIz9jy2QZ137EQQ1UzuKkNe2mhBC2dDfXzvatT/eUwG+t9VkHFJ2j2t/vMcCv1dYQkAGXfvjNTQzm2CB/yoqITptJqxe5tovb7Egrxb3uDr4W/KKa7+8ZPnUoZMtyk9tSMgvH5VWn+LaP++wwNOKTsZBlXiqa/+8g0DWtCshhMw6nXbtozfYUnZ720bHgaRA9TbXfnoDgbzb7oRYlLJrP70gnTVyvkXZ0/4RIn9WnltzoellPpix/oRBWHeBVo3kb+AleSwtMRDK/LxwAWTQAq/rwOjYL70WyKBeW21QW9QmtU1tVFvVZuMT780ZPnNZIlcT8iSbZJN1BmNB5lrkhQS8lJA/JhCxyN8X+ZJnOyngnXX7h/IEAi9V/3TPPoXq4+q3+j+QDF/SscpJreCwKC/8I8Bbm90wClmUx4S3aow0VnpzFl5JWS9MK/wlrXfE2yqQXVtcpQfKBvdOid8CXldIBUylxHc6dwbDUArZHS0nhICfcu2IDUSE8mTLCbEg97l2xAajAjbIyv18PCFvce+MeC0C2VzYlJj6qjcTyh+unbKeSmNXgepNhSTjYFKAbySUH107Z70TbxtIsltMO1hWWnuxRam6d1K8kL4uDMySS027l0oI5VPXztru1yo9y2I6Qf5Dn6/nOHe61p3id97q33Si6SS646brNHE9S0YnY6HT3UhK+AkLstv9XSlOpfsrXbNXr8srWs3Ru8ng33QPxXQTaYmvIuRNPZcM5C2FreQWTXkmn6edFFwHyXZOq7t+G1iL0Cxy2gXBqrVZH+q5FeMDuu6fb3G6D1qtLQJZsrJ/5bHGz4M2vNd5ALEY5VN8kLnGZyiRB4JYmATeSYlMMSGgsxCvl/BBfqiUshtMSGiNk85KnAcXG1NeYdM3cpEJEdv31RkWOPNnZHCmNpuQ8Wn5nkDEhAxNr57l02IkIe/r2BK6C1Lk+10H2TaqJJtsQoWAX3YeYGx0lMh8EyoE8pnrANvGtcqEiJb1a9s9/0YI7+r47l8nsInc6jq4tvmkTDKhQcDPe5yQOSY0Cm2RgR1WaC058oIIj8+XEMjPQXUS0hZ7roNqW5Qe2zOhQIk87TqgtlUBTzOhYJHfdh5QbE1aGGhCIYRqFALeaAJqBFALQZVurzAZD7rt2fa7F5mO9D2Rwq4TwhYugbzWtiCBfK1H7kYdUG3jfgsvNL5jkb9sQ2B2aPXH4daY9NhYva3s9uJvAB4yPlN+hk/Ni5CLHRWDenBorGvr8147/hR8I+z1pjjucFCS3V1gIr7TviKN2pD3IWngExdjqYLVu4yvaG+UAoKwR5/dOtqataMMm0/KG+LkTWRavjH8LZTTT0W06PwK/SpCYfbMzCYQ8vut2KQNZYyPaO1rsz+shLylmcfTeKm3U2rqZZVAfveyrncAh69oYkTstijzOtHGdX+Vvsxr5vRX2jdyufENPdfe6KMgdeCoXjPva9VIUkoj1xsfGyGPZw9dH0/d8AZMiUwZV/0x8E6dJBgfsSAvHcG5PQS8oJXZU3vem3jBEZtwAr9ofKV+cOf10dWK2nigmzd8luU9JEc1R9B+kcCLg/gMnzpYQZ6eL2l49PxNk+GJarParodaXdsTiUQikUgkEolEIpFIJGJ6m78BZTHJHYIZI6MAAAAASUVORK5CYII="/>
+                                    </defs>
+                                    </svg>
+                                    <svg style="margin-left: 0.4vw;" width="1.5vw"viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <rect width="40" height="40" fill="url(#pattern0_11_264)"/>
+                                        <defs>
+                                        <pattern id="pattern0_11_264" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                        <use xlink:href="#image0_11_264" transform="scale(0.01)"/>
+                                        </pattern>
+                                        <image id="image0_11_264" width="100" height="100" xlink:href="data:image/png;base64,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"/>
+                                        </defs>
+                                        </svg>
+                        
+                </div>
+                <div style="font-size: 3vw; font-weight: 600; margin-top: 2vw;">About Spam Detector</div>
+                <div style="max-width: 50vw; margin: 2vw auto; font-size: 1vw;">A pioneering force in the field of spam detection using AI. At Spam Detector, we are dedicated to creating a safer and more secure online experience for users by combatting spam and fraudulent activities. At Spam Detector , we continuously refine our algorithms and methodologies to stay ahead of emerging spamming techniques. Our commitment to innovation ensures that our users can trust in the reliability and effectiveness of our spam detection solutions.</div>
+            </div>
+
+        </section>
+                                        <!-- About -->
+        <section id="about" style="display: flex; flex-direction: row; justify-content: center; background-color: #fff; padding: 5vw;">
+            <!-- context -->
+            <div style="width: 43vw; padding-top: 2vw; text-align:center">
+                <div style="font-size: 2.5vw; color: #000; font-weight: 700;">Our Mission</div>
+                <div style="font-size: 1.2vw; margin-top: 0.6vw; font-size: 1vw;">
+                     We're on a mission to stop spam and scams at their source using AI. Our team works to stay ahead of spammers, giving you confidence to browse safely and know where threats come from. We're here to help you trust the internet again.                </div>
+            </div>
+
+        </section>
+
+
+
+
+
+
+                                        <!-- QNA -->
+        <section id="qna" style="background-color: #F1F5F9; text-align: center; padding: 4vw 0;">
+            <!-- context -->
+            <div style="font-size: 3vw; font-weight: 600; ">About Spam Detector</div>
+                <div style="max-width: 50vw; margin: 1vw auto; font-size: 1vw;">You've got questions? We've got answers.</div>
+
+                <!-- cards -->
+               <div style="display: grid; grid-template-columns: 40vw 40vw; gap: 1vw 2vw; align-items: start; justify-content: center; margin-top: 4vw;">
+                <!-- card 1 -->
+                <div class="qna-card hide-card-context" style="padding: 1.5vw;" id="about-card-1">
+                    <div style="display: flex; align-items: center; justify-content: space-between;" >
+                        <div style="font-size: 1vw; font-weight: 700;">How does this, work?</div>
+                        <svg width="1.2vw" class="card-svg" id="card-svg" viewBox="-5 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+        
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                                <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-473.000000, -1195.000000)" fill="#000000">
+                                    <path d="M486.717,1206.22 L474.71,1195.28 C474.316,1194.89 473.678,1194.89 473.283,1195.28 C472.89,1195.67 472.89,1196.31 473.283,1196.7 L484.566,1206.98 L473.283,1217.27 C472.89,1217.66 472.89,1218.29 473.283,1218.69 C473.678,1219.08 474.316,1219.08 474.71,1218.69 L486.717,1207.75 C486.927,1207.54 487.017,1207.26 487.003,1206.98 C487.017,1206.71 486.927,1206.43 486.717,1206.22" id="chevron-right" sketch:type="MSShapeGroup">
+                        
+                        </path>
+                                </g>
+                            </g>
+                        </svg>       
+                    </div>
+                    <!-- ans -->
+                    <div style="text-align: start; overflow: hidden;" class="card-context" id="about-context-1">
+                        <div style="border-top: 0.15vw #0000002d solid; padding: 1vw 0; margin-top: 1vw; font-size: 1vw;">
+                            Once the email has been provided to our detector, it can sense if it is a spam or not spam, and, also were its coming from and it can display it to you.
+                        </div>
+                    </div>
+                </div>
+                <!-- card 2 -->
+                <div class="qna-card hide-card-context" style="padding: 1.5vw;" id="about-card-2">
+                    <div style="display: flex; align-items: center; justify-content: space-between;" >
+                        <div style="font-size: 1vw; font-weight: 700;">Is it difficult to use?</div>
+                        <svg width="1.2vw" class="card-svg" id="card-svg" viewBox="-5 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+        
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                                <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-473.000000, -1195.000000)" fill="#000000">
+                                    <path d="M486.717,1206.22 L474.71,1195.28 C474.316,1194.89 473.678,1194.89 473.283,1195.28 C472.89,1195.67 472.89,1196.31 473.283,1196.7 L484.566,1206.98 L473.283,1217.27 C472.89,1217.66 472.89,1218.29 473.283,1218.69 C473.678,1219.08 474.316,1219.08 474.71,1218.69 L486.717,1207.75 C486.927,1207.54 487.017,1207.26 487.003,1206.98 C487.017,1206.71 486.927,1206.43 486.717,1206.22" id="chevron-right" sketch:type="MSShapeGroup">
+                        
+                        </path>
+                                </g>
+                            </g>
+                        </svg>       
+                    </div>
+                    <!-- ans -->
+                    <div style="text-align: start; overflow: hidden;" class="card-context" id="about-context-1">
+                        <div style="border-top: 0.15vw #0000002d solid; padding: 1vw 0; margin-top: 1vw; font-size: 1vw;">
+                            Using spam detector is as simple as writing text to your friend.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- card 3 -->
+                <div class="qna-card hide-card-context" style="padding: 1.5vw;" id="about-card-3">
+                    <div style="display: flex; align-items: center; justify-content: space-between;" >
+                        <div style="font-size: 1vw; font-weight: 700;">What are the benefits?</div>
+                        <svg width="1.2vw" class="card-svg" id="card-svg" viewBox="-5 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+        
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                                <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-473.000000, -1195.000000)" fill="#000000">
+                                    <path d="M486.717,1206.22 L474.71,1195.28 C474.316,1194.89 473.678,1194.89 473.283,1195.28 C472.89,1195.67 472.89,1196.31 473.283,1196.7 L484.566,1206.98 L473.283,1217.27 C472.89,1217.66 472.89,1218.29 473.283,1218.69 C473.678,1219.08 474.316,1219.08 474.71,1218.69 L486.717,1207.75 C486.927,1207.54 487.017,1207.26 487.003,1206.98 C487.017,1206.71 486.927,1206.43 486.717,1206.22" id="chevron-right" sketch:type="MSShapeGroup">
+                        
+                        </path>
+                                </g>
+                            </g>
+                        </svg>       
+                    </div>
+                    <!-- ans -->
+                    <div style="text-align: start; overflow: hidden;" class="card-context" id="about-context-1">
+                        <div style="border-top: 0.15vw #0000002d solid; padding: 1vw 0; margin-top: 1vw; font-size: 1vw;">
+                            It can detect which emails of yours are spam or not spam, and, it can also tell you where this spam is coming from.
+                        </div>
+                    </div>
+                </div>
+                <!-- card 4 -->
+                <div class="qna-card hide-card-context" style="padding: 1.5vw;" id="about-card-4">
+                    <div style="display: flex; align-items: center; justify-content: space-between;" >
+                        <div style="font-size: 1vw; font-weight: 700;">How does this, work?</div>
+                        <svg width="1.2vw" class="card-svg" id="card-svg" viewBox="-5 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+        
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                                <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-473.000000, -1195.000000)" fill="#000000">
+                                    <path d="M486.717,1206.22 L474.71,1195.28 C474.316,1194.89 473.678,1194.89 473.283,1195.28 C472.89,1195.67 472.89,1196.31 473.283,1196.7 L484.566,1206.98 L473.283,1217.27 C472.89,1217.66 472.89,1218.29 473.283,1218.69 C473.678,1219.08 474.316,1219.08 474.71,1218.69 L486.717,1207.75 C486.927,1207.54 487.017,1207.26 487.003,1206.98 C487.017,1206.71 486.927,1206.43 486.717,1206.22" id="chevron-right" sketch:type="MSShapeGroup">
+                        
+                        </path>
+                                </g>
+                            </g>
+                        </svg>       
+                    </div>
+                    <!-- ans -->
+                    <div style="text-align: start; overflow: hidden;" class="card-context" id="about-context-1">
+                        <div style="border-top: 0.15vw #0000002d solid; padding: 1vw 0; margin-top: 1vw; font-size: 1vw;">
+                            Just click on the top right corner of the screen where its winding up.
+                        </div>
+                    </div>
+                </div>
+               </div>
+        </section>
+
+
+
+                                         <!-- Footer -->
+            <footer style="background-color: #F2F2F2; display: flex; flex-direction: row; justify-content: space-between; padding:3vw 5vw 5vw;">
+            <!-- logo -->
+            <a href="/" style="font-size: 1.7vw; font-weight: 600; font-family: Inter, sans-serif; cursor: pointer; text-decoration: none; color: #1C385D;">Spam Detector</a>
+            <!-- item 1 -->
+            <div>
+                <!-- heading -->
+                <div style="font-size: 2vw; font-weight: 600;">Resources</div>
+                <!-- items -->
+                <div style="font-size: 1vw; margin-top: 0.4vw; display: flex; flex-direction: column; align-items: start; justify-content: start; ">
+                    <a href="/about" class="footer-items" style="text-decoration: none; color: #000;">About</a>
+                    <a href="/contact" style="margin-top: 0.4vw; text-decoration: none; color: #000;" class="footer-items">Contact</a>
+                </div>
+            </div>
+            <!-- item2 -->
+            <div>
+                <!-- heading -->
+                <div style="font-size: 2vw; font-weight: 600;">Legal</div>
+                <!-- items -->
+                <div style="font-size: 1vw; margin-top: 0.4vw; display: flex; flex-direction: column; align-items: start; justify-content: start;">
+                    
+                    <div style="margin-top: 0.4vw;" class="footer-items">Privacy Policy</div>
+                    <div style="margin-top: 0.4vw;" class="footer-items">Term of Services</div>
+                </div>
+            </div>
+
+        </footer>
+        
+        <div style="background-color: #F2F2F2; padding:0 5vw; ">
+            <div style="display: flex; flex-direction: row; justify-content: space-between; border-top: 0.1vw #0000004b solid; margin-top: 4vw;">
+            <p style="font-size: 1vw;">2024 © <a href="/" style="text-decoration: none; color: #000; font-weight: 800; color: #000;">Spam Detector</a> All Rights Reserved. </p>
+            <div style="display: flex; flex-direction: row; justify-content: space-between;">
+                                <!-- insta -->
+                <svg width="1.7vw" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-icons">
+                    <path d="M3 11C3 7.22876 3 5.34315 4.17157 4.17157C5.34315 3 7.22876 3 11 3H13C16.7712 3 18.6569 3 19.8284 4.17157C21 5.34315 21 7.22876 21 11V13C21 16.7712 21 18.6569 19.8284 19.8284C18.6569 21 16.7712 21 13 21H11C7.22876 21 5.34315 21 4.17157 19.8284C3 18.6569 3 16.7712 3 13V11Z" stroke="#222222"/>
+                    <circle cx="16.5" cy="7.5" r="1.5" fill="#222222"/>
+                    <circle cx="12" cy="12" r="3.5" stroke="#222222"/>
+                    </svg>
+                    <!-- face -->
+                    <svg class="svg-icons" style="margin-left: 0.5vw;" width="1.7vw" viewBox="-5 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    
+                        <defs>
+                    
+                    </defs>
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="Dribbble-Light-Preview" transform="translate(-385.000000, -7399.000000)" fill="#000000">
+                                <g id="icons" transform="translate(56.000000, 160.000000)">
+                                    <path d="M335.821282,7259 L335.821282,7250 L338.553693,7250 L339,7246 L335.821282,7246 L335.821282,7244.052 C335.821282,7243.022 335.847593,7242 337.286884,7242 L338.744689,7242 L338.744689,7239.14 C338.744689,7239.097 337.492497,7239 336.225687,7239 C333.580004,7239 331.923407,7240.657 331.923407,7243.7 L331.923407,7246 L329,7246 L329,7250 L331.923407,7250 L331.923407,7259 L335.821282,7259 Z" id="facebook-[#176]">
+                    
+                    </path>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                    <!-- twitter -->
+                    <svg class="svg-icons" style="margin-left: 0.5vw;" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="1.7vw" viewBox="0 0 50 50">
+                        <path d="M 5.9199219 6 L 20.582031 27.375 L 6.2304688 44 L 9.4101562 44 L 21.986328 29.421875 L 31.986328 44 L 44 44 L 28.681641 21.669922 L 42.199219 6 L 39.029297 6 L 27.275391 19.617188 L 17.933594 6 L 5.9199219 6 z M 9.7167969 8 L 16.880859 8 L 40.203125 42 L 33.039062 42 L 9.7167969 8 z"></path>
+                        </svg>
+                    
+            </div>
+        </div>
+        </div>
+                                        
+                                
+</body>
+<script>
+if(!window.localStorage.getItem("tokken")){
+        console.log("Not logged")
+        
+    }
+    else{
+        
+        fetch('/protected', {
+            headers: {Authorization : `Bearer ${window.localStorage.getItem("tokken")}`}
+        }).then(res=> {
+            if (res.status !== 200){
+                window.localStorage.removeItem("tokken")
+                console.log("tokken expires")
+            }
+            else{
+                document.getElementById("login").classList.add("hidden")
+                document.getElementById("signup").classList.add("hidden")
+                document.getElementById("loggout-btn").classList.remove("hidden")
+            }
+        })
+    }
+
+
+   document.getElementById("loggout-btn").addEventListener("click", ()=> {
+    window.localStorage.removeItem("tokken")
+    window.location.href = window.location.href
+})
+    // card Dom mani
+const card1 = document.getElementById("about-card-1")
+const card2 = document.getElementById("about-card-2")
+const card3 = document.getElementById("about-card-3")
+const card4 = document.getElementById("about-card-4")
+
+card1.addEventListener("click", ()=> {
+    if(card1.classList.contains("hide-card-context")){
+        card1.classList.remove("hide-card-context")
+        card1.classList.add("show-card-context")
+    }
+    else {
+        card1.classList.remove("show-card-context")
+        card1.classList.add("hide-card-context")
+    }
+})
+
+
+card2.addEventListener("click", ()=> {
+    if(card2.classList.contains("hide-card-context")){
+        card2.classList.remove("hide-card-context")
+        card2.classList.add("show-card-context")
+    }
+    else {
+        card2.classList.remove("show-card-context")
+        card2.classList.add("hide-card-context")
+    }
+})
+
+card3.addEventListener("click", ()=> {
+    if(card3.classList.contains("hide-card-context")){
+        card3.classList.remove("hide-card-context")
+        card3.classList.add("show-card-context")
+    }
+    else {
+        card3.classList.remove("show-card-context")
+        card3.classList.add("hide-card-context")
+    }
+})
+
+card4.addEventListener("click", ()=> {
+    if(card4.classList.contains("hide-card-context")){
+        card4.classList.remove("hide-card-context")
+        card4.classList.add("show-card-context")
+    }
+    else {
+        card4.classList.remove("show-card-context")
+        card4.classList.add("hide-card-context")
+    }
+})
+document.getElementById("loggout-btn").addEventListener("click", ()=> {
+    window.localStorage.removeItem("tokken")
+    window.location.href = window.location.href
+})
+</script>
+</html>

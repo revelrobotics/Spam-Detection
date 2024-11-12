@@ -1,0 +1,71 @@
+
+
+system desgin and sepcification 
+`1. different diagrams which includes 
+	a. use case diagram 
+	b. class diagram 	
+	c. activity diagram 
+	d. block diagram for the whole system 
+	if any other diagram your teacher recommends we will include 
+
+
+2. programming langauges and implementation 
+
+	a. python programming will be used to implement the core logic of the system 
+	b. HTML and CSS for the fornt of the application 
+
+mains features would be 
+	a. spam email filteration or classification, it will classifiy the emails either spam
+	or normal emails 
+	b. we will use the geolocation feature to indentify the location of the origin 
+	this will be a quite complex feature, but we will manage to show the proof of concept 
+	through this 
+
+
+
+
+meeting notes and feedback on 28/10/2024
+
+1. once the email is submitted and checked by the system, it should dispaly,
+wether it is "Spam" or "Scam". 
+2. once the email is submitted the system, the should identify that wether it submitted by 
+human, or a bot or chatGPT (LLM or generative AI) text. 
+3. create a small dataset of our own. 
+
+
+
+new feedback for the writing  on 01/11/2024
+chapter 3 - Methodology 
+1. introduction 
+2. operational Framework -- flow chart for the methodology 
+3. phase 1 -- 
+4. phase 2
+5. phase 3
+6. phase 4 -- Prelimiary testing 
+7. Requirements specification- functional and non functional requirements 
+6. conclusion of the chapter 3. 
+
+Chapter 5: implementation and results and problems .... 
+1. implementation --- code and functions and user interface 
+2. Results and Testing--- this should include the different testing we performed, and also 
+the reuslts of the website, that what results it gives (some screen shots and reuslts graph)
+if possible 
+3. limitations of the study and current website 
+4. conclusion 
+
+Chapter 6: future work and recommendations 
+
+1. future Work 
+2. Recommendation 
+
+Feedback for the website 
+
+1. seperate field for the email address (for the email address, geo location and timeStamp, 
+when the email is sent, and the date.)
+2. seperate field body (it should classify the text as either Spam or Scam)
+3. seperate field for the footer section of the email 
+4. create our own dataset(atleast 1000 emails).
+
+
+
+
