@@ -1,0 +1,12 @@
+markdown
+flask
+pandas
+scikit-learn
+numpy
+flask-bcrypt
+Flask-JWT-Extended
+python-dotenv
+langchain 
+langchain-community 
+langchain_google_genai
+streamlit 
