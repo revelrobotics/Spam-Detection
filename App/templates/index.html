@@ -1,104 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Spam Detector</title>
-        <link rel="stylesheet" href="../static/css/style.css">
-    </head>
-<body >
 
-<!-- fixed alert -->
-<div id="alert" class="alert alert-hide">
-Please type at least <br> 10 words
-</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Detector</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
 
+<body>
 
-
-
-
-
-                    <!-- navbar -->
-<nav style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; border-bottom: 0.02vw #00000042 solid; padding: 1.2vw 2vw; user-select:none ;">
-<!-- logo -->
-<a href="/" style="font-size: 1.7vw; font-weight: 600; font-family: Inter, sans-serif; cursor: pointer; text-decoration: none; color: #1C385D;">Spam Detector</a>
-<!-- context -->
-<div style="display: flex; flex-direction: row; font-size: 1vw; font-weight: 600;">
-    <a href="/about" class="nav-context">About</a>
-    <a href="/contact" style="margin-left: 1vw;" class="nav-context">Contact</a>
-</div>
-<!-- btn -->
-<div style="display: flex; flex-direction: row; font-size: 0.7vw;">
-    <a href="/login" class="sign-btn" style="background-color:#F2F2F2; color: #1C385D; border: 0.1vw #1C385D solid; text-decoration: none;" id="login">Log In</a>
-    <a href="/signup" class="sign-btn" style="color:#F2F2F2; background-color: #1C385D; text-decoration: none;" id="signup">Sign Up</a>
-    <div class="sign-btn hidden"  style="color:#F2F2F2; background-color: #1C385D;" id="loggout-btn">Log Out</div>
-</div>
-</nav>
+    <!-- fixed alert -->
+    <div id="alert" class="alert alert-hide">
+        Please type at least <br> 10 words
+    </div>
 
 
 
-                    <!-- hero -->
+
+    <!-- navbar -->
+    <nav
+        style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; border-bottom: 0.02vw #00000042 solid; padding: 1.2vw 2vw; user-select:none ;">
+        <!-- logo -->
+        <a href="/"
+            style="font-size: 1.7vw; font-weight: 600; font-family: Inter, sans-serif; cursor: pointer; text-decoration: none; color: #1C385D;">Spam
+            Detector</a>
+        <!-- context -->
+        <div style="display: flex; flex-direction: row; font-size: 1vw; font-weight: 600;">
+            <a href="/about" class="nav-context">About</a>
+            <a href="/contact" style="margin-left: 1vw;" class="nav-context">Contact</a>
+        </div>
+        <!-- btn -->
+        <div style="display: flex; flex-direction: row; font-size: 0.7vw;">
+            <a href="/login" class="sign-btn"
+                style="background-color:#F2F2F2; color: #1C385D; border: 0.1vw #1C385D solid; text-decoration: none;"
+                id="login">Log In</a>
+            <a href="/signup" class="sign-btn" style="color:#F2F2F2; background-color: #1C385D; text-decoration: none;"
+                id="signup">Sign Up</a>
+            <div class="sign-btn hidden" style="color:#F2F2F2; background-color: #1C385D;" id="loggout-btn">Log Out
+            </div>
+        </div>
+    </nav>
 
 
-    <div  style="margin-top: 6vw; display: flex; flex-direction: column; align-items: center; justify-content:center;">
+
+    <!-- hero -->
+
+
+    <div style="margin-top: 6vw; display: flex; flex-direction: column; align-items: center; justify-content:center;">
         <!-- context -->
         <div style="width: 100%; text-align: center; color: #1C385D; letter-spacing: 0.1vw; font-weight: 600;">
             <div style="font-size: 2.5vw;">Elavate AI to <span style="color: #BF6CCF;">Spam</span> <br> Detector</div>
             <div style="margin-top: 1vw; font-size: 1vw;">Check your message for Spam</div>
         </div>
         <!-- Email -->
-<textarea style="width: 60%; background-color: #ffff; margin-top: 3vw; border-radius: 0.5vw; font-size: 0.8vw; padding: 1vw 1.5vw; transition: all 0.3s linear; z-index: 20;" placeholder="Email" class="text-area" rows="1" cols="100" id="email"  ></textarea>
+        <textarea
+            style="width: 60%; background-color: #ffff; margin-top: 3vw; border-radius: 0.5vw; font-size: 0.8vw; padding: 1vw 1.5vw; transition: all 0.3s linear; z-index: 20;"
+            placeholder="Email" class="text-area" rows="1" cols="100" id="email"></textarea>
 
         <!-- textarea -->
-           
-        <textarea style="width: 60%; height: 20vw;  background-color: #ffff; margin-top: 3vw; border-radius: 0.5vw; font-size: 0.8vw; padding: 1vw 1.5vw; transition: all 0.3s linear; z-index: 20;" placeholder="Body" class="text-area" rows="10" cols="100"  id="outbox"  ></textarea>
-        
-             <!-- Footer -->
-<textarea style="width: 60%; background-color: #ffff; margin-top: 3vw; border-radius: 0.5vw; font-size: 0.8vw; padding: 1vw 1.5vw; transition: all 0.3s linear; z-index: 20;" placeholder="Footer" class="text-area" rows="1" cols="100" id="footer-form"  ></textarea>
+
+        <textarea
+            style="width: 60%; height: 20vw;  background-color: #ffff; margin-top: 3vw; border-radius: 0.5vw; font-size: 0.8vw; padding: 1vw 1.5vw; transition: all 0.3s linear; z-index: 20;"
+            placeholder="Body" class="text-area" rows="10" cols="100" id="outbox"></textarea>
+
+        <!-- Footer -->
+        <textarea
+            style="width: 60%; background-color: #ffff; margin-top: 3vw; border-radius: 0.5vw; font-size: 0.8vw; padding: 1vw 1.5vw; transition: all 0.3s linear; z-index: 20;"
+            placeholder="Footer" class="text-area" rows="1" cols="100" id="footer-form"></textarea>
 
     </div>
-        
 
 
 
-                <!-- Submit buttons -->
-    <div style=" display: flex; flex-direction: row; align-items: center; justify-content:space-between;  width: 61%; margin: 1vw auto; ">
-        
+
+    <!-- Submit buttons -->
+    <div
+        style=" display: flex; flex-direction: row; align-items: center; justify-content:space-between;  width: 61%; margin: 1vw auto; ">
         <!-- btn 1 -->
-        <div id="choose-file" style="display: inline-flex; flex-direction: row; align-items: center;  padding: 0.3vw 1vw; border-radius: 0.6vw; user-select: none; cursor: pointer;" class="text-area-btn">
+        <div id="choose-file"
+            style="display: inline-flex; flex-direction: row; align-items: center;  padding: 0.3vw 1vw; border-radius: 0.6vw; user-select: none; cursor: pointer;"
+            class="text-area-btn">
             <svg width="1.2vw" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8 5.00005C7.01165 5.00082 6.49359 5.01338 6.09202 5.21799C5.71569 5.40973 5.40973 5.71569 5.21799 6.09202C5 6.51984 5 7.07989 5 8.2V17.8C5 18.9201 5 19.4802 5.21799 19.908C5.40973 20.2843 5.71569 20.5903 6.09202 20.782C6.51984 21 7.07989 21 8.2 21H15.8C16.9201 21 17.4802 21 17.908 20.782C18.2843 20.5903 18.5903 20.2843 18.782 19.908C19 19.4802 19 18.9201 19 17.8V8.2C19 7.07989 19 6.51984 18.782 6.09202C18.5903 5.71569 18.2843 5.40973 17.908 5.21799C17.5064 5.01338 16.9884 5.00082 16 5.00005M8 5.00005V7H16V5.00005M8 5.00005V4.70711C8 4.25435 8.17986 3.82014 8.5 3.5C8.82014 3.17986 9.25435 3 9.70711 3H14.2929C14.7456 3 15.1799 3.17986 15.5 3.5C15.8201 3.82014 16 4.25435 16 4.70711V5.00005" stroke="#BF6CCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+                <path
+                    d="M8 5.00005C7.01165 5.00082 6.49359 5.01338 6.09202 5.21799C5.71569 5.40973 5.40973 5.71569 5.21799 6.09202C5 6.51984 5 7.07989 5 8.2V17.8C5 18.9201 5 19.4802 5.21799 19.908C5.40973 20.2843 5.71569 20.5903 6.09202 20.782C6.51984 21 7.07989 21 8.2 21H15.8C16.9201 21 17.4802 21 17.908 20.782C18.2843 20.5903 18.5903 20.2843 18.782 19.908C19 19.4802 19 18.9201 19 17.8V8.2C19 7.07989 19 6.51984 18.782 6.09202C18.5903 5.71569 18.2843 5.40973 17.908 5.21799C17.5064 5.01338 16.9884 5.00082 16 5.00005M8 5.00005V7H16V5.00005M8 5.00005V4.70711C8 4.25435 8.17986 3.82014 8.5 3.5C8.82014 3.17986 9.25435 3 9.70711 3H14.2929C14.7456 3 15.1799 3.17986 15.5 3.5C15.8201 3.82014 16 4.25435 16 4.70711V5.00005"
+                    stroke="#BF6CCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
             <p style="display: inline; margin-left: 0.3vw; color: #000; font-size: 1vw;">Choose a File</p>
-            <input type="file"   accept="text/plain" name="" id="picker" style="display: none;">
+            <input type="file" accept="text/plain" name="" id="picker" style="display: none;">
         </div>
 
         <!-- btn 2 -->
-        <div style="width: 50%; display: flex; flex-direction: row; align-items: center; justify-content:space-between; background-color: #ffff; padding: 0.6vw 0.5vw; border-radius: 0.5vw;">
+        <div
+            style="width: 50%; display: flex; flex-direction: row; align-items: center; justify-content:space-between; background-color: #ffff; padding: 0.6vw 0.5vw; border-radius: 0.5vw;">
             <!-- clear btn -->
-            <div id="clear-btn" style="display: inline-flex; flex-direction: row; align-items: center; border: 0.1vw #00000025 solid;  padding: 0.4vw 0.4vw; border-radius: 0.5vw; user-select: none; cursor: pointer;" class="text-area-btn">
+            <div id="clear-btn"
+                style="display: inline-flex; flex-direction: row; align-items: center; border: 0.1vw #00000025 solid;  padding: 0.4vw 0.4vw; border-radius: 0.5vw; user-select: none; cursor: pointer;"
+                class="text-area-btn">
                 <svg width="1vw" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4 6H20M16 6L15.7294 5.18807C15.4671 4.40125 15.3359 4.00784 15.0927 3.71698C14.8779 3.46013 14.6021 3.26132 14.2905 3.13878C13.9376 3 13.523 3 12.6936 3H11.3064C10.477 3 10.0624 3 9.70951 3.13878C9.39792 3.26132 9.12208 3.46013 8.90729 3.71698C8.66405 4.00784 8.53292 4.40125 8.27064 5.18807L8 6M18 6V16.2C18 17.8802 18 18.7202 17.673 19.362C17.3854 19.9265 16.9265 20.3854 16.362 20.673C15.7202 21 14.8802 21 13.2 21H10.8C9.11984 21 8.27976 21 7.63803 20.673C7.07354 20.3854 6.6146 19.9265 6.32698 19.362C6 18.7202 6 17.8802 6 16.2V6M14 10V17M10 10V17" stroke="#BF6CCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+                    <path
+                        d="M4 6H20M16 6L15.7294 5.18807C15.4671 4.40125 15.3359 4.00784 15.0927 3.71698C14.8779 3.46013 14.6021 3.26132 14.2905 3.13878C13.9376 3 13.523 3 12.6936 3H11.3064C10.477 3 10.0624 3 9.70951 3.13878C9.39792 3.26132 9.12208 3.46013 8.90729 3.71698C8.66405 4.00784 8.53292 4.40125 8.27064 5.18807L8 6M18 6V16.2C18 17.8802 18 18.7202 17.673 19.362C17.3854 19.9265 16.9265 20.3854 16.362 20.673C15.7202 21 14.8802 21 13.2 21H10.8C9.11984 21 8.27976 21 7.63803 20.673C7.07354 20.3854 6.6146 19.9265 6.32698 19.362C6 18.7202 6 17.8802 6 16.2V6M14 10V17M10 10V17"
+                        stroke="#BF6CCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
                 <div style="display: inline; margin-left: 0.3vw; color: #000; font-size: 1vw;">Clear</div>
             </div>
             <!-- words -->
             <div style="display: inline-flex; flex-direction: row; align-content: center; justify-content: center;">
 
-                <div id="words" class="textarea-words" style="display: inline-flex; flex-direction: row; align-items: center; justify-content: center; ">
+                <div id="words" class="textarea-words"
+                    style="display: inline-flex; flex-direction: row; align-items: center; justify-content: center; ">
                     <div id="words-context" style="font-size: 1vw;">Words: 0/200</div>
-                <svg style="margin: 0 0.4vw;"  width="1vw" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-	 viewBox="0 0 302.967 302.967" xml:space="preserve">
-<g>
-	<g>
-		<g>
-			<path style="fill:#0100025d;" d="M151.483,302.967C67.956,302.967,0,235.017,0,151.483S67.956,0,151.483,0
+                    <svg style="margin: 0 0.4vw;" width="1vw" version="1.1" id="Capa_1"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        viewBox="0 0 302.967 302.967" xml:space="preserve">
+                        <g>
+                            <g>
+                                <g>
+                                    <path style="fill:#0100025d;" d="M151.483,302.967C67.956,302.967,0,235.017,0,151.483S67.956,0,151.483,0
 				s151.483,67.956,151.483,151.483S235.017,302.967,151.483,302.967z M151.483,24.416c-70.066,0-127.067,57.001-127.067,127.067
-				s57.001,127.067,127.067,127.067s127.067-57.001,127.067-127.067S221.555,24.416,151.483,24.416z"/>
-		</g>
-		<g>
-			<g>
-				<path style="fill:#0100025d;" d="M116.586,118.12c1.795-4.607,4.297-8.588,7.511-11.961c3.225-3.389,7.114-6.016,11.667-7.898
+				s57.001,127.067,127.067,127.067s127.067-57.001,127.067-127.067S221.555,24.416,151.483,24.416z" />
+                                </g>
+                                <g>
+                                    <g>
+                                        <path style="fill:#0100025d;" d="M116.586,118.12c1.795-4.607,4.297-8.588,7.511-11.961c3.225-3.389,7.114-6.016,11.667-7.898
 					c4.547-1.904,9.633-2.845,15.262-2.845c7.261,0,13.32,0.995,18.183,2.997c4.857,1.996,8.768,4.482,11.738,7.441
 					c2.964,2.97,5.091,6.168,6.369,9.584c1.273,3.432,1.915,6.636,1.915,9.595c0,4.901-0.642,8.947-1.915,12.118
 					c-1.278,3.171-2.866,5.88-4.759,8.131c-1.898,2.252-3.987,4.172-6.293,5.755c-2.295,1.588-4.471,3.171-6.516,4.759
@@ -107,93 +131,113 @@ Please type at least <br> 10 words
 					c2.04-1.539,3.927-3.073,5.673-4.591c1.73-1.545,3.144-3.225,4.221-5.069c1.071-1.833,1.556-4.15,1.452-6.908
 					c0-4.705-1.148-8.18-3.454-10.427c-2.295-2.257-5.493-3.378-9.589-3.378c-2.758,0-5.134,0.533-7.131,1.605
 					s-3.628,2.513-4.911,4.302c-1.278,1.795-2.225,3.894-2.834,6.288c-0.615,2.415-0.919,4.982-0.919,7.756h-22.55
-					C113.85,127.785,114.791,122.732,116.586,118.12z M162.536,183.938v23.616h-24.09v-23.616H162.536z"/>
-			</g>
-		</g>
-	</g>
-</g>
-</svg>
-                </div>
-                <!-- submit -->
-            <div id="submit-btn" class="submit-btn" style="text-align: center; display: inline; font-size: 1vw;">Submit</div>
-            </div>
-        </div>
-
-    </div>
-
-   <!-- response -->
-    <div id="response" class="hidden" style="background-color: #fff; text-align: center; width: 40vw; margin: 2vw auto; padding: 2vw; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 0.3vw; font-size: 1vw;">
-        <div id="response-ans"><span style="font-weight: 700;">Hooray!</span> It's a <span style="font-weight: 700; color: #5084FB;">Spam</span></div>
-        <div id="location" style="font-weight: 700;"><span style="font-weight: 800;">Geographical location: </span></div>
-    </div>
-
-                                                <!-- Footer -->
-        <footer style="background-color: #F2F2F2; display: flex; flex-direction: row; justify-content: space-between; margin-top: 10vw; padding:3vw 5vw 5vw;">
-            <!-- logo -->
-            <a href="/" style="font-size: 1.7vw; font-weight: 600; font-family: Inter, sans-serif; cursor: pointer; text-decoration: none; color: #1C385D;">Spam Detector</a>
-            <!-- item 1 -->
-            <div>
-                <!-- heading -->
-                <div style="font-size: 2vw; font-weight: 600;">Resources</div>
-                <!-- items -->
-                <div style="font-size: 1vw; margin-top: 0.4vw; display: flex; flex-direction: column; align-items: start; justify-content: start; ">
-                    <a href="/about" class="footer-items" style="text-decoration: none; color: #000;">About</a>
-                    <a href="/contact" style="margin-top: 0.4vw; text-decoration: none; color: #000;" class="footer-items">Contact</a>
-                    
-                </div>
-            </div>
-            <!-- item2 -->
-            <div>
-                <!-- heading -->
-                <div style="font-size: 2vw; font-weight: 600;">Legal</div>
-                <!-- items -->
-                <div style="font-size: 1vw; margin-top: 0.4vw; display: flex; flex-direction: column; align-items: start; justify-content: start;">
-                    
-                    <div style="margin-top: 0.4vw;" class="footer-items">Privacy Policy</div>
-                    <div style="margin-top: 0.4vw;" class="footer-items">Term of Services</div>
-                </div>
-            </div>
-
-        </footer>
-        <div style="background-color: #F2F2F2; padding:0 5vw; ">
-            <div style="display: flex; flex-direction: row; justify-content: space-between; border-top: 0.1vw #0000004b solid; margin-top: 4vw;">
-                <p style="font-size: 1vw;">2024 © <a href="/" style="text-decoration: none; color: #000; font-weight: 800; color: #000;">Spam Detector</a> All Rights Reserved. </p>
-            <div style="display: flex; flex-direction: row; justify-content: space-between;">
-                                <!-- insta -->
-                <svg width="1.7vw" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-icons">
-                    <path d="M3 11C3 7.22876 3 5.34315 4.17157 4.17157C5.34315 3 7.22876 3 11 3H13C16.7712 3 18.6569 3 19.8284 4.17157C21 5.34315 21 7.22876 21 11V13C21 16.7712 21 18.6569 19.8284 19.8284C18.6569 21 16.7712 21 13 21H11C7.22876 21 5.34315 21 4.17157 19.8284C3 18.6569 3 16.7712 3 13V11Z" stroke="#222222"/>
-                    <circle cx="16.5" cy="7.5" r="1.5" fill="#222222"/>
-                    <circle cx="12" cy="12" r="3.5" stroke="#222222"/>
-                    </svg>
-                    <!-- face -->
-                    <svg class="svg-icons" style="margin-left: 0.5vw;" width="1.7vw" viewBox="-5 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    
-    
-                        <defs>
-                    
-                    </defs>
-                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <g id="Dribbble-Light-Preview" transform="translate(-385.000000, -7399.000000)" fill="#000000">
-                                <g id="icons" transform="translate(56.000000, 160.000000)">
-                                    <path d="M335.821282,7259 L335.821282,7250 L338.553693,7250 L339,7246 L335.821282,7246 L335.821282,7244.052 C335.821282,7243.022 335.847593,7242 337.286884,7242 L338.744689,7242 L338.744689,7239.14 C338.744689,7239.097 337.492497,7239 336.225687,7239 C333.580004,7239 331.923407,7240.657 331.923407,7243.7 L331.923407,7246 L329,7246 L329,7250 L331.923407,7250 L331.923407,7259 L335.821282,7259 Z" id="facebook-[#176]">
-                    
-                    </path>
+					C113.85,127.785,114.791,122.732,116.586,118.12z M162.536,183.938v23.616h-24.09v-23.616H162.536z" />
+                                    </g>
                                 </g>
                             </g>
                         </g>
                     </svg>
-                    <!-- twitter -->
-                    <svg class="svg-icons" style="margin-left: 0.5vw;" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="1.7vw" viewBox="0 0 50 50">
-                        <path d="M 5.9199219 6 L 20.582031 27.375 L 6.2304688 44 L 9.4101562 44 L 21.986328 29.421875 L 31.986328 44 L 44 44 L 28.681641 21.669922 L 42.199219 6 L 39.029297 6 L 27.275391 19.617188 L 17.933594 6 L 5.9199219 6 z M 9.7167969 8 L 16.880859 8 L 40.203125 42 L 33.039062 42 L 9.7167969 8 z"></path>
-                        </svg>
-                    
+                </div>
+                <!-- submit -->
+                <div id="submit-btn" class="submit-btn" style="text-align: center; display: inline; font-size: 1vw;">
+                    Submit</div>
             </div>
         </div>
+
+    </div>
+
+    <!-- response -->
+    <div id="response" class="hidden"
+        style="background-color: #fff;  width: 40vw; margin: 2vw auto; padding: 2vw; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 0.3vw; font-size: 1vw;">
+        <div id="result" class="spam-result"></div>
+        <div id="location" style="font-weight: 700;"><span style="font-weight: 800;">Geographical location: </span>
         </div>
-        
-        
+    </div>
 
-        <script src="../static/js/main.js"></script>
+    <!-- Footer -->
+    <footer
+        style="background-color: #F2F2F2; display: flex; flex-direction: row; justify-content: space-between; margin-top: 10vw; padding:3vw 5vw 5vw;">
+        <!-- logo -->
+        <a href="/"
+            style="font-size: 1.7vw; font-weight: 600; font-family: Inter, sans-serif; cursor: pointer; text-decoration: none; color: #1C385D;">Spam
+            Detector</a>
+        <!-- item 1 -->
+        <div>
+            <!-- heading -->
+            <div style="font-size: 2vw; font-weight: 600;">Resources</div>
+            <!-- items -->
+            <div
+                style="font-size: 1vw; margin-top: 0.4vw; display: flex; flex-direction: column; align-items: start; justify-content: start; ">
+                <a href="/about" class="footer-items" style="text-decoration: none; color: #000;">About</a>
+                <a href="/contact" style="margin-top: 0.4vw; text-decoration: none; color: #000;"
+                    class="footer-items">Contact</a>
+
+            </div>
+        </div>
+        <!-- item2 -->
+        <div>
+            <!-- heading -->
+            <div style="font-size: 2vw; font-weight: 600;">Legal</div>
+            <!-- items -->
+            <div
+                style="font-size: 1vw; margin-top: 0.4vw; display: flex; flex-direction: column; align-items: start; justify-content: start;">
+
+                <div style="margin-top: 0.4vw;" class="footer-items">Privacy Policy</div>
+                <div style="margin-top: 0.4vw;" class="footer-items">Term of Services</div>
+            </div>
+        </div>
+
+    </footer>
+    <div style="background-color: #F2F2F2; padding:0 5vw; ">
+        <div
+            style="display: flex; flex-direction: row; justify-content: space-between; border-top: 0.1vw #0000004b solid; margin-top: 4vw;">
+            <p style="font-size: 1vw;">2024 © <a href="/"
+                    style="text-decoration: none; color: #000; font-weight: 800; color: #000;">Spam Detector</a> All
+                Rights Reserved. </p>
+            <div style="display: flex; flex-direction: row; justify-content: space-between;">
+                <!-- insta -->
+                <svg width="1.7vw" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-icons">
+                    <path
+                        d="M3 11C3 7.22876 3 5.34315 4.17157 4.17157C5.34315 3 7.22876 3 11 3H13C16.7712 3 18.6569 3 19.8284 4.17157C21 5.34315 21 7.22876 21 11V13C21 16.7712 21 18.6569 19.8284 19.8284C18.6569 21 16.7712 21 13 21H11C7.22876 21 5.34315 21 4.17157 19.8284C3 18.6569 3 16.7712 3 13V11Z"
+                        stroke="#222222" />
+                    <circle cx="16.5" cy="7.5" r="1.5" fill="#222222" />
+                    <circle cx="12" cy="12" r="3.5" stroke="#222222" />
+                </svg>
+                <!-- face -->
+                <svg class="svg-icons" style="margin-left: 0.5vw;" width="1.7vw" viewBox="-5 0 20 20" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+
+                    <defs>
+
+                    </defs>
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="Dribbble-Light-Preview" transform="translate(-385.000000, -7399.000000)" fill="#000000">
+                            <g id="icons" transform="translate(56.000000, 160.000000)">
+                                <path
+                                    d="M335.821282,7259 L335.821282,7250 L338.553693,7250 L339,7246 L335.821282,7246 L335.821282,7244.052 C335.821282,7243.022 335.847593,7242 337.286884,7242 L338.744689,7242 L338.744689,7239.14 C338.744689,7239.097 337.492497,7239 336.225687,7239 C333.580004,7239 331.923407,7240.657 331.923407,7243.7 L331.923407,7246 L329,7246 L329,7250 L331.923407,7250 L331.923407,7259 L335.821282,7259 Z"
+                                    id="facebook-[#176]">
+
+                                </path>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+                <!-- twitter -->
+                <svg class="svg-icons" style="margin-left: 0.5vw;" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                    width="1.7vw" viewBox="0 0 50 50">
+                    <path
+                        d="M 5.9199219 6 L 20.582031 27.375 L 6.2304688 44 L 9.4101562 44 L 21.986328 29.421875 L 31.986328 44 L 44 44 L 28.681641 21.669922 L 42.199219 6 L 39.029297 6 L 27.275391 19.617188 L 17.933594 6 L 5.9199219 6 z M 9.7167969 8 L 16.880859 8 L 40.203125 42 L 33.039062 42 L 9.7167969 8 z">
+                    </path>
+                </svg>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="../static/js/main.js"></script>
 </body>
-</html>
 
+</html>

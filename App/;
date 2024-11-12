@@ -3,12 +3,13 @@ from flask_jwt_extended import JWTManager, create_access_token, JWTManager, get_
 from flask_bcrypt import Bcrypt
 import json
 import sqlite3
-from inference import run_spam_detection
-from markdown import markdown
+import markdown
 import markdown.extensions.fenced_code
+
 
 # App configuration
 app = Flask(__name__)
+app.config["JWT_SECRET_KEY"] = "This is spam detector super secret key" 
 app.config['JWT_TOKEN_LOCATION'] = ['headers']
 jwt = JWTManager(app)
 bcrypt = Bcrypt(app)
@@ -26,6 +27,8 @@ users(user_id INTEGER PRIMARY KEY, username TEXT, email TEXT, password TEXT)
 # home Page
 @app.route("/")
 def homePage():
+    readme_file = open("Example Output.md", "r")
+    print(markdown.markdown(readme_file.read(),extensions=["fenced_code"]))
     return render_template('index.html')
 
 # login page
@@ -136,17 +139,12 @@ def contact():
 
 @app.route("/submit", methods=['POST'])
 def submit():
-    email = request.get_json("email")
-    body = request.get_json("body")
-    footer = request.get_json("footer")
-    result_spam = run_spam_detection(
-        email,body,footer
-    )
-    md_template_string = markdown.markdown(result_spam)
     data = request.get_json()
-    return jsonify({
-        "result": "Spam",
-        "content": md_template_string,
-    }),200
+    result = "Spam"
+    if result == "Spam":
+        return jsonify("Spam"),200
+    elif result == "Not Spam":
+        return jsonify("Not Spam"),300
+    return jsonify("hello from the Server"),400
 if __name__ == '__main__':
     app.run()
