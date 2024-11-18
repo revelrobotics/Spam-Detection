@@ -22,7 +22,34 @@ submit_btn.addEventListener("click", () => {
                 fetch(`https://ipinfo.io/${ip_form.value}/json`).then(
                     (response) => response.json()).then(
                         (response) => {
-                            document.getElementById("location").innerHTML = `<div id="location" style="font-weight: 500;"><span style="font-weight: 800;">Geographical location: </span>${response.country}, ${response.region}, ${response.city}</div>`
+                            document.getElementById("location").innerHTML = `<div id="location" style="font-weight: 500; width:100%;"><div style="font-weight: 800;">Geographical location: </div>
+                               <ul>
+                                <li>
+                                    <span style="font-weight: 800;">ip: </span>
+                                    ${response.ip}
+                                </li>
+                                <li>
+                                    <span style="font-weight: 800;">city: </span>
+                                    ${response.city}
+                                </li>
+                                 <li>
+                                    <span style="font-weight: 800;">region: </span>
+                                    ${response.region}
+                                </li>
+                                 <li>
+                                    <span style="font-weight: 800;">country: </span>
+                                    ${response.country}
+                                </li>
+                                 <li>
+                                    <span style="font-weight: 800;">postal: </span>
+                                    ${response.postal}
+                                </li>
+                                 <li>
+                                    <span style="font-weight: 800;">timezone: </span>
+                                    ${response.timezone}
+                                </li>
+                            </ul>
+                                `
                         }).catch(err => console.log(err))
             }
             )
