@@ -66,7 +66,6 @@ submit_btn.addEventListener("click", () => {
     })
 
 })
-
 // choose file
 const pickerActivator = document.getElementById("choose-file")
 const filePicker = document.getElementById("picker")

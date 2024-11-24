@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spam Detector</title>
+    <title>Checker || Spam Detector</title>
     <link rel="stylesheet" href="../static/css/style.css">
 </head>
 
@@ -51,28 +51,18 @@
     <div style="margin-top: 6vw; display: flex; flex-direction: column; align-items: center; justify-content:center;">
         <!-- context -->
         <div style="width: 100%; text-align: center; color: #1C385D; letter-spacing: 0.1vw; font-weight: 600;">
-            <div style="font-size: 2.5vw;">Elavate AI to <span style="color: #BF6CCF;">Spam</span> <br> Detector</div>
-            <div style="margin-top: 1vw; font-size: 1vw;">Check your message for Spam</div>
+            <div style="font-size: 2.5vw;">Checker</div>
+            <div style="margin-top: 1vw; font-size: 1vw; max-width: 40%; margin-left:auto; margin-right:auto">Analyze an
+                email to determine
+                if it's written
+                by Alyazia, Aysha, or a suspicious third-party sender. The tool uses NLP to classify the email and
+                provides a detailed explanation based on writing patterns, tone, and greetings</div>
         </div>
-        <!-- Email -->
-        <textarea
-            style="width: 60%; background-color: #ffff; margin-top: 3vw; border-radius: 0.5vw; font-size: 0.8vw; padding: 1vw 1.5vw; transition: all 0.3s linear; z-index: 20;"
-            placeholder="Email" class="text-area" rows="1" cols="100" id="email"></textarea>
-        <!-- Ip address -->
-        <textarea
-            style="width: 60%; background-color: #ffff; margin-top: 3vw; border-radius: 0.5vw; font-size: 0.8vw; padding: 1vw 1.5vw; transition: all 0.3s linear; z-index: 20;"
-            placeholder="Ip Address" class="text-area" rows="1" cols="100" id="ip"></textarea>
         <!-- textarea -->
 
         <textarea
             style="width: 60%; height: 20vw;  background-color: #ffff; margin-top: 3vw; border-radius: 0.5vw; font-size: 0.8vw; padding: 1vw 1.5vw; transition: all 0.3s linear; z-index: 20;"
             placeholder="Body" class="text-area" rows="10" cols="100" id="outbox"></textarea>
-
-        <!-- Footer -->
-        <textarea
-            style="width: 60%; background-color: #ffff; margin-top: 3vw; border-radius: 0.5vw; font-size: 0.8vw; padding: 1vw 1.5vw; transition: all 0.3s linear; z-index: 20;"
-            placeholder="Footer" class="text-area" rows="1" cols="100" id="footer-form"></textarea>
-
     </div>
 
 
@@ -143,7 +133,8 @@
                     </svg>
                 </div>
                 <!-- submit -->
-                <div id="submit-btn" class="submit-btn" style="text-align: center; display: inline; font-size: 1vw;">
+                <div id="checker-submit-btn" class="submit-btn"
+                    style="text-align: center; display: inline; font-size: 1vw;">
                     Submit</div>
             </div>
         </div>
@@ -154,8 +145,6 @@
     <div id="response" class="hidden"
         style="background-color: #fff;  width: 40vw; margin: 2vw auto; padding: 2vw; display: flex; flex-direction: column;  justify-content: center; border-radius: 0.3vw; font-size: 1vw;">
         <div id="result" class="spam-result"></div>
-        <div id="location" style="font-weight: 700;"><span style="font-weight: 800;">Geographical location: </span>
-        </div>
     </div>
 
     <!-- Footer -->
@@ -242,8 +231,29 @@
     </div>
 
 
+    <script>
+        const body_form = document.getElementById("outbox")
+        console.log("hello to checker")
+        const checker_submit_btn = document.getElementById("checker-submit-btn")
+        checker_submit_btn.addEventListener("click", () => {
+            fetch('/checkerSubmit', {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                    body: body_form.value,
+                })
+            }).then(res => {
+                if (res.status == 200) {
+                    res.json().then(data => {
+                        window.location.hash = "outbox"
+                        document.getElementById('result').innerHTML = data.content
+                        document.getElementById("response").classList.remove("hidden")
+                    })
+                }
+            })
+        })
 
-    <script src="../static/js/main.js"></script>
+    </script>
 </body>
 
 </html>

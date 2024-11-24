@@ -4,6 +4,7 @@ from flask_bcrypt import Bcrypt
 import json
 import sqlite3
 from inference import run_spam_detection
+from checker import classify_email
 from markdown import markdown
 import markdown.extensions.fenced_code
 
@@ -27,6 +28,11 @@ users(user_id INTEGER PRIMARY KEY, username TEXT, email TEXT, password TEXT)
 @app.route("/")
 def homePage():
     return render_template('index.html')
+# Checker
+@app.route("/checker")
+def checkerPage():
+    return render_template('checker.html')
+
 
 # login page
 @app.route("/login", methods=["GET", "POST"])
@@ -148,5 +154,16 @@ def submit():
         "result": "Spam",
         "content": md_template_string,
     }),200
+
+@app.route("/checkerSubmit", methods=["POST"])
+def cherckerSubmit():
+    body = request.get_json("body")
+    checker_spam = classify_email(body)
+    md_template_string = markdown.markdown(checker_spam)
+    return jsonify({
+        "result": "Spam",
+        "content": md_template_string,
+    }),200
+
 if __name__ == '__main__':
     app.run()
