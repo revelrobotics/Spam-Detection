@@ -98,6 +98,12 @@
                 </svg>
                 <div style="display: inline; margin-left: 0.3vw; color: #000; font-size: 1vw;">Clear</div>
             </div>
+            <!-- clear btn -->
+            <div id="paste-btn"
+                style="display: inline-flex; flex-direction: row; align-items: center; border: 0.1vw #00000025 solid;  padding: 0.4vw 0.4vw; border-radius: 0.5vw; user-select: none; cursor: pointer;"
+                class="text-area-btn">
+                <div style="display: inline; margin-left: 0.3vw; color: #000; font-size: 1vw;">Paste</div>
+            </div>
             <!-- words -->
             <div style="display: inline-flex; flex-direction: row; align-content: center; justify-content: center;">
 
@@ -235,7 +241,13 @@
         const body_form = document.getElementById("outbox")
         console.log("hello to checker")
         const checker_submit_btn = document.getElementById("checker-submit-btn")
+        var isEnable = true
         checker_submit_btn.addEventListener("click", () => {
+            if (!isEnable) return;
+            isEnable = false
+            checker_submit_btn.style.opacity = "0.5"
+            checker_submit_btn.style.cursor = "default"
+
             fetch('/checkerSubmit', {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
@@ -250,8 +262,52 @@
                         document.getElementById("response").classList.remove("hidden")
                     })
                 }
+            }).finally(() => {
+                isEnable = true
+                checker_submit_btn.style.opacity = "1.0"
+                checker_submit_btn.style.cursor = "pointer"
             })
         })
+        // choose file
+        const pickerActivator = document.getElementById("choose-file")
+        const filePicker = document.getElementById("picker")
+        pickerActivator.addEventListener("click", () => {
+            filePicker.value = null
+            filePicker.click()
+
+        })
+        filePicker.onchange = () => {
+            body_form.value = ""
+            const file = filePicker.files[0]
+            var reader = new FileReader();
+            reader.onload = function (progressEvent) {
+                // Entire file
+                const text = this.result;
+                // By lines
+
+                var lines = text.split('\n');
+
+                for (var line = 0; line < lines.length; line++) {
+                    if (lines[line] === "" && body_form.value == "") body_form.value += "\n"
+                    else body_form.value += "\n" + lines[line]
+                }
+
+            };
+            reader.readAsText(file)
+        }
+        var active = "outbox"
+        const paste_btn = document.getElementById("paste-btn")
+        paste_btn.addEventListener("click", async () => {
+            document.getElementById(active).value = await navigator.clipboard.readText()
+        })
+        const clear_btn = document.getElementById("clear-btn")
+        clear_btn.addEventListener("click", () => {
+            body_form.value = ""
+            email_form.value = ""
+            ip_form.value = ""
+            footer_form.value = ""
+        })
+
 
     </script>
 </body>

@@ -3,7 +3,12 @@ const ip_form = document.getElementById("ip")
 const body_form = document.getElementById("outbox")
 const footer_form = document.getElementById("footer-form")
 const submit_btn = document.getElementById("submit-btn")
+var isEnable = true
 submit_btn.addEventListener("click", () => {
+    if (!isEnable) return
+    isEnable = false
+    submit_btn.style.opacity = "0.5"
+    submit_btn.style.cursor = "default"
     fetch('/submit', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -63,9 +68,16 @@ submit_btn.addEventListener("click", () => {
             }
             )
         }
+    }).finally(() => {
+        isEnable = true
+        submit_btn.style.cursor = "pointer"
+        submit_btn.style.opacity = "1.0"
+
     })
 
 })
+
+
 // choose file
 const pickerActivator = document.getElementById("choose-file")
 const filePicker = document.getElementById("picker")
@@ -75,11 +87,7 @@ pickerActivator.addEventListener("click", () => {
 
 })
 filePicker.onchange = () => {
-    destination.classList.remove("hidden");
-    words.classList.remove("textarea-words")
-    mainBox.classList.add("hidden")
-
-    var result = ""
+    body_form.value = ""
     const file = filePicker.files[0]
     var reader = new FileReader();
     reader.onload = function(progressEvent) {
@@ -90,21 +98,37 @@ filePicker.onchange = () => {
         var lines = text.split('\n');
 
         for (var line = 0; line < lines.length; line++) {
-            if (result === "")
-                result += lines[line].split('\r')[0]
-            else
-                result = result + " " + lines[line].split('\r')[0]
+            if (lines[line] === "" && body_form.value == "") body_form.value += "\n"
+            else body_form.value += "\n" + lines[line]
         }
-        destination.value = ""
-        destination.value = result
-        result.split(' ').length
-        words_context.innerText = `Words: ${result.split(' ').length || 0}/200`
 
     };
     reader.readAsText(file)
-
-
-
 }
+var active = "outbox"
+body_form.addEventListener("click", () => {
+    active = "outbox"
+})
+email_form.addEventListener("click", () => {
+    active = "email"
+})
+ip_form.addEventListener("click", () => {
+    active = "ip"
+})
+footer_form.addEventListener("click", () => {
+    active = "footer-form"
+
+})
+const paste_btn = document.getElementById("paste-btn")
+paste_btn.addEventListener("click", async () => {
+    document.getElementById(active).value = await navigator.clipboard.readText()
+})
+const clear_btn = document.getElementById("clear-btn")
+clear_btn.addEventListener("click", () => {
+    body_form.value = ""
+    email_form.value = ""
+    ip_form.value = ""
+    footer_form.value = ""
+})
 
 
