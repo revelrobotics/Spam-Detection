@@ -82,28 +82,69 @@ submit_btn.addEventListener("click", () => {
 const pickerActivator = document.getElementById("choose-file")
 const filePicker = document.getElementById("picker")
 pickerActivator.addEventListener("click", () => {
+    if (!filePicker) return;
     filePicker.value = null
     filePicker.click()
-
 })
+
 filePicker.onchange = () => {
-    body_form.value = ""
+    if (filePicker === "") return
+    const typefile = filePicker.value.split('.')[1]
     const file = filePicker.files[0]
-    var reader = new FileReader();
-    reader.onload = function(progressEvent) {
-        // Entire file
-        const text = this.result;
-        // By lines
+    switch (typefile) {
+        case 'txt':
+            var reader = new FileReader();
+            reader.onload = function(progressEvent) {
+                // Entire file
+                const text = this.result;
+                // By lines
 
-        var lines = text.split('\n');
+                var lines = text.split('\n');
 
-        for (var line = 0; line < lines.length; line++) {
-            if (lines[line] === "" && body_form.value == "") body_form.value += "\n"
-            else body_form.value += "\n" + lines[line]
-        }
+                for (var line = 0; line < lines.length; line++) {
+                    if (lines[line] === "" && body_form.value == "") body_form.value += "\n"
+                    else body_form.value += "\n" + lines[line]
+                }
 
-    };
-    reader.readAsText(file)
+            };
+            reader.readAsText(file)
+            break;
+        case 'pdf':
+            body_form.value = "waiting..."
+            const formData = new FormData();
+            formData.append('file', file);
+
+            fetch(`https://v2.convertapi.com/convert/pdf/to/txt?Secret=secret_SrOfU6cxXX2nRwwp&storefile=true`, {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.Files && data.Files.length > 0) {
+                        const fileUrl = data.Files[0].Url;
+
+                        // Fetch the text content from the returned URL
+                        return fetch(fileUrl);
+                    } else {
+                        throw new Error('No files returned from the conversion.');
+                    }
+                })
+                .then(response => response.text())
+                .then(text => {
+                    body_form.value = text;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to convert PDF to text.');
+                });
+            break;
+        default:
+            alert('format doesn\'t supported')
+            filePicker.value = ""
+            break;
+
+    }
+
 }
 var active = "outbox"
 body_form.addEventListener("click", () => {
