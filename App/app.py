@@ -7,9 +7,7 @@ from inference import run_spam_detection
 from checker import classify_email
 from markdown import markdown
 import markdown.extensions.fenced_code
-import convertapi
 
-convertapi.api_credentials = 'secret_SrOfU6cxXX2nRwwp'
 
 # App configuration
 app = Flask(__name__)
@@ -142,15 +140,6 @@ def contact():
     elif request.method == 'POST':
         data = request.get_json()
     return jsonify("hello from the backend"), 200
-
-# pdf acceptor
-@app.route('/pdf', methods=["POST"])
-def pdfTotext():
-    data = request.files['file']
-    convertapi.convert('txt', {
-        'File': data
-    }, from_format = 'pdf')
-    return jsonify("hello from the backend"),200
 
 @app.route("/submit", methods=['POST'])
 def submit():
