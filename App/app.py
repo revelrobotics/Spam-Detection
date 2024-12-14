@@ -159,7 +159,9 @@ def submit():
 
 @app.route("/checkerSubmit", methods=["POST"])
 def cherckerSubmit():
-    body = request.get_json("body")
+    personOne = request.get_json("person_one")
+    personSec = request.get_json("person_sec")
+    comparis = request.get_json("compaision")
     checker_spam = classify_email(body)
     md_template_string = markdown.markdown(checker_spam)
     return jsonify({
