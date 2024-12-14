@@ -27,6 +27,7 @@
         <div style="display: flex; flex-direction: row; font-size: 1vw; font-weight: 600;">
             <a href="/about" class="nav-context">About</a>
             <a href="/contact" style="margin-left: 1vw;" class="nav-context">Contact</a>
+            <a href="/checker" style="margin-left: 1vw;" class="nav-context">Checker</a>
         </div>
         <!-- btn -->
         <div style="display: flex; flex-direction: row; font-size: 0.7vw;">
@@ -42,35 +43,34 @@
 
 
     <div style="width: 100%; display: flex; justify-content: center; margin-top: 5vw">
+
         <div class="shadow"
-            style=" background-color: #fff; width: 25vw;  padding: 2vw 4vw;   display: flex; flex-direction: column; align-items: center; justify-content: centers; border-radius: 0.5vw;">
-            <div style="font-size: 2vw; font-weight: 700;">Log In</div>
-            <div id="error-log" style="font-size: 1vw; margin-top: 1vw; color: #BF6CCF;" class="hidden">Yo Dogg how are
-                you doing</div>
+            style="background-color: #fff; width: 25vw;  padding: 2vw 4vw; display: flex; flex-direction: column; align-items: center; justify-content: centers; border-radius: 0.5vw;">
+            <div style="font-size: 2vw; font-weight: 700;">Reset Password</div>
+            <div id="error-log" style="font-size: 1vw; margin-top: 1vw; color: #BF6CCF;" class="hidden">hello from the
+                Rvel</div>
             <!-- form -->
             <div style="margin-top: 2vw;">
                 <div style="display: flex; flex-direction: column;">
                     <div style="font-size: 1vw; margin-bottom: 0.5vw;">Email</div>
-                    <input type="text" class="auth-input" placeholder="johnsmith@gmail.com" id="email">
+                    <input type="email" class="auth-input" placeholder="John Smith" id="email">
                 </div>
                 <div style="display: flex; flex-direction: column; margin-top: 1vw;">
                     <div style="font-size: 1vw; margin-bottom: 0.5vw;">Password</div>
                     <input type="password" class="auth-input" placeholder="**********" id="password">
-                    <div class="log-forg">
-                        <a href="/resetpass">Forget Password</a>
-                    </div>
                 </div>
-                <button class="auth-btn" id="log-btn">Log In</button>
+                <div style="display: flex; flex-direction: column; margin-top: 1vw;">
+                    <div style="font-size: 1vw; margin-bottom: 0.5vw;">Confirm Password</div>
+                    <input type="password" class="auth-input" placeholder="**********" id="confirmPass">
+                </div>
+                <button class="auth-btn" id="sign-btn">Submit</button>
                 <div style="width: 100%; text-align: center; margin-top: 0.5vw;">
-                    <a href="/signup" class="auth-log-text">Don't have an account. <span>Sgin Up</span></a>
+                    <a href="/login" class="auth-log-text">Alread have an account.<span> Log In</span></a>
                 </div>
-                <p class="log-text">By clicking on log In, you agree to our <span>Terms of Services</span> and
-                    <span>Privacy Policy</span>.
-                </p>
+
             </div>
 
         </div>
-
 
     </div>
 
@@ -92,6 +92,8 @@
                 <a href="/about" class="footer-items" style="text-decoration: none; color: #000;">About</a>
                 <a href="/contact" style="margin-top: 0.4vw; text-decoration: none; color: #000;"
                     class="footer-items">Contact</a>
+                <a href="/checker" style="margin-top: 0.4vw; text-decoration: none; color: #000;"
+                    class="footer-items">Checker</a>
 
             </div>
         </div>
@@ -155,7 +157,7 @@
             </div>
         </div>
     </div>
-    <script src="../static/js/login.js">
+    <script src="../static/js/pass.js">
     </script>
 </body>
 

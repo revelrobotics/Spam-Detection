@@ -1,0 +1,73 @@
+.checker_hero {
+    margin-top: 6vw;
+    width: 100%;
+    text-align: center;
+    color: #1C385D;
+    letter-spacing: 0.1vw;
+    font-weight: 600;
+}
+
+.text_area_container {
+    margin: 2vw auto;
+    max-width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text_area_container p {
+    font-size: 2vw;
+}
+
+.body_textarea {
+    height: 5vw;
+    background-color: #ffff;
+    border-radius: 0.5vw;
+    font-size: 0.8vw;
+    padding: 1vw 1.5vw;
+    transition: all 0.3s linear;
+    z-index: 20;
+}
+
+.ip_textarea {
+    background-color: #ffff;
+    margin-bottom: 2vw;
+    border-radius: 0.5vw;
+    font-size: 0.8vw;
+    padding: 1vw 1.5vw;
+    transition: all 0.3s linear;
+    z-index: 20;
+}
+
+.chose_file_container {
+    margin-top: 2vw;
+    width: 100%;
+}
+
+.chose_file_btn {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.3vw 1vw;
+    border-radius: 0.6vw;
+    user-select: none;
+    cursor: pointer;
+}
+
+.submit_btn_body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 61%;
+    margin: 1vw auto;
+}
+
+.submit_btn_body p {
+    font-size: 1vw;
+    color: red;
+}
+
+.hidden {
+    display: none;
+}

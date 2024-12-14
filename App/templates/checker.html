@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checker || Spam Detector</title>
     <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/checker.css">
 </head>
 
 <body>
@@ -33,11 +34,11 @@
         </div>
         <!-- btn -->
         <div style="display: flex; flex-direction: row; font-size: 0.7vw;">
-            <a href="/login" class="sign-btn"
+            <a href="/login" class="sign-btn hidden"
                 style="background-color:#F2F2F2; color: #1C385D; border: 0.1vw #1C385D solid; text-decoration: none;"
                 id="login">Log In</a>
-            <a href="/signup" class="sign-btn" style="color:#F2F2F2; background-color: #1C385D; text-decoration: none;"
-                id="signup">Sign Up</a>
+            <a href="/signup" class="sign-btn hidden"
+                style="color:#F2F2F2; background-color: #1C385D; text-decoration: none;" id="signup">Sign Up</a>
             <div class="sign-btn hidden" style="color:#F2F2F2; background-color: #1C385D;" id="loggout-btn">Log Out
             </div>
         </div>
@@ -47,46 +48,70 @@
 
     <!-- hero -->
 
-
-    <div style="margin-top: 6vw; display: flex; flex-direction: column; align-items: center; justify-content:center;">
-        <!-- context -->
-        <div style="width: 100%; text-align: center; color: #1C385D; letter-spacing: 0.1vw; font-weight: 600;">
-            <div style="font-size: 2.5vw;">Checker</div>
-            <div style="margin-top: 1vw; font-size: 1vw; max-width: 40%; margin-left:auto; margin-right:auto">The tool
-                uses NLP to classify the email and
-                provides a detailed explanation based on writing patterns, tone, and greetings</div>
+    <div class="checker_hero">
+        <div style="font-size: 2.5vw;">Checker</div>
+        <div style="margin-top: 1vw; font-size: 1vw; max-width: 40%; margin-left:auto; margin-right:auto">The tool
+            uses NLP to classify the email and
+            provides a detailed explanation based on writing patterns, tone, and greetings</div>
+    </div>
+    <div class="text_area_container">
+        <p>Person 1</p>
+        <textarea placeholder="Body" class="text-area body_textarea" rows="10" cols="100" id="p1-outbox"></textarea>
+        <div class="chose_file_container">
+            <div id="p1-choose-file" class="text-area-btn chose_file_btn">
+                <svg width="1.2vw" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M8 5.00005C7.01165 5.00082 6.49359 5.01338 6.09202 5.21799C5.71569 5.40973 5.40973 5.71569 5.21799 6.09202C5 6.51984 5 7.07989 5 8.2V17.8C5 18.9201 5 19.4802 5.21799 19.908C5.40973 20.2843 5.71569 20.5903 6.09202 20.782C6.51984 21 7.07989 21 8.2 21H15.8C16.9201 21 17.4802 21 17.908 20.782C18.2843 20.5903 18.5903 20.2843 18.782 19.908C19 19.4802 19 18.9201 19 17.8V8.2C19 7.07989 19 6.51984 18.782 6.09202C18.5903 5.71569 18.2843 5.40973 17.908 5.21799C17.5064 5.01338 16.9884 5.00082 16 5.00005M8 5.00005V7H16V5.00005M8 5.00005V4.70711C8 4.25435 8.17986 3.82014 8.5 3.5C8.82014 3.17986 9.25435 3 9.70711 3H14.2929C14.7456 3 15.1799 3.17986 15.5 3.5C15.8201 3.82014 16 4.25435 16 4.70711V5.00005"
+                        stroke="#BF6CCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <p style="display: inline; margin-left: 0.3vw; color: #000; font-size: 1vw;">Choose a File</p>
+                <input type="file" accept="application/pdf, text/plain" name="" id="p1-picker" style="display: none;">
+            </div>
         </div>
-        <!-- Ip address -->
-        <textarea
-            style="width: 60%; background-color: #ffff; margin-top: 3vw; border-radius: 0.5vw; font-size: 0.8vw; padding: 1vw 1.5vw; transition: all 0.3s linear; z-index: 20;"
-            placeholder="Ip Address" class="text-area" rows="1" cols="100" id="ip"></textarea>
-        <!-- textarea -->
 
-        <textarea
-            style="width: 60%; height: 20vw;  background-color: #ffff; margin-top: 3vw; border-radius: 0.5vw; font-size: 0.8vw; padding: 1vw 1.5vw; transition: all 0.3s linear; z-index: 20;"
-            placeholder="Body" class="text-area" rows="10" cols="100" id="outbox"></textarea>
+    </div>
+    <div class="text_area_container">
+        <p>Person 2</p>
+        <textarea placeholder="Body" class="text-area body_textarea" rows="10" cols="100" id="p2-outbox"></textarea>
+        <div class="chose_file_container">
+            <div id="p2-choose-file" class="text-area-btn chose_file_btn">
+                <svg width="1.2vw" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M8 5.00005C7.01165 5.00082 6.49359 5.01338 6.09202 5.21799C5.71569 5.40973 5.40973 5.71569 5.21799 6.09202C5 6.51984 5 7.07989 5 8.2V17.8C5 18.9201 5 19.4802 5.21799 19.908C5.40973 20.2843 5.71569 20.5903 6.09202 20.782C6.51984 21 7.07989 21 8.2 21H15.8C16.9201 21 17.4802 21 17.908 20.782C18.2843 20.5903 18.5903 20.2843 18.782 19.908C19 19.4802 19 18.9201 19 17.8V8.2C19 7.07989 19 6.51984 18.782 6.09202C18.5903 5.71569 18.2843 5.40973 17.908 5.21799C17.5064 5.01338 16.9884 5.00082 16 5.00005M8 5.00005V7H16V5.00005M8 5.00005V4.70711C8 4.25435 8.17986 3.82014 8.5 3.5C8.82014 3.17986 9.25435 3 9.70711 3H14.2929C14.7456 3 15.1799 3.17986 15.5 3.5C15.8201 3.82014 16 4.25435 16 4.70711V5.00005"
+                        stroke="#BF6CCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <p style="display: inline; margin-left: 0.3vw; color: #000; font-size: 1vw;">Choose a File</p>
+                <input type="file" accept="application/pdf, text/plain" name="" id="p2-picker" style="display: none;">
+            </div>
+        </div>
+
+    </div>
+    <div class="text_area_container">
+        <p>Comparison</p>
+        <!-- Ip address -->
+        <textarea placeholder="Ip Address" class="text-area ip_textarea" rows="1" cols="100" id="ip"></textarea>
+        <!-- textarea -->
+        <textarea placeholder="Body" class="text-area body_textarea" rows="10" cols="100" id="com-outbox"></textarea>
+        <div class="chose_file_container">
+            <div id="com-choose-file" class="text-area-btn chose_file_btn">
+                <svg width="1.2vw" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M8 5.00005C7.01165 5.00082 6.49359 5.01338 6.09202 5.21799C5.71569 5.40973 5.40973 5.71569 5.21799 6.09202C5 6.51984 5 7.07989 5 8.2V17.8C5 18.9201 5 19.4802 5.21799 19.908C5.40973 20.2843 5.71569 20.5903 6.09202 20.782C6.51984 21 7.07989 21 8.2 21H15.8C16.9201 21 17.4802 21 17.908 20.782C18.2843 20.5903 18.5903 20.2843 18.782 19.908C19 19.4802 19 18.9201 19 17.8V8.2C19 7.07989 19 6.51984 18.782 6.09202C18.5903 5.71569 18.2843 5.40973 17.908 5.21799C17.5064 5.01338 16.9884 5.00082 16 5.00005M8 5.00005V7H16V5.00005M8 5.00005V4.70711C8 4.25435 8.17986 3.82014 8.5 3.5C8.82014 3.17986 9.25435 3 9.70711 3H14.2929C14.7456 3 15.1799 3.17986 15.5 3.5C15.8201 3.82014 16 4.25435 16 4.70711V5.00005"
+                        stroke="#BF6CCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <p style="display: inline; margin-left: 0.3vw; color: #000; font-size: 1vw;">Choose a File</p>
+                <input type="file" accept="application/pdf, text/plain" name="" id="com-picker" style="display: none;">
+            </div>
+        </div>
+
     </div>
 
 
 
 
     <!-- Submit buttons -->
-    <div
-        style=" display: flex; flex-direction: row; align-items: center; justify-content:space-between;  width: 61%; margin: 1vw auto; ">
-        <!-- btn 1 -->
-        <div id="choose-file"
-            style="display: inline-flex; flex-direction: row; align-items: center;  padding: 0.3vw 1vw; border-radius: 0.6vw; user-select: none; cursor: pointer;"
-            class="text-area-btn">
-            <svg width="1.2vw" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M8 5.00005C7.01165 5.00082 6.49359 5.01338 6.09202 5.21799C5.71569 5.40973 5.40973 5.71569 5.21799 6.09202C5 6.51984 5 7.07989 5 8.2V17.8C5 18.9201 5 19.4802 5.21799 19.908C5.40973 20.2843 5.71569 20.5903 6.09202 20.782C6.51984 21 7.07989 21 8.2 21H15.8C16.9201 21 17.4802 21 17.908 20.782C18.2843 20.5903 18.5903 20.2843 18.782 19.908C19 19.4802 19 18.9201 19 17.8V8.2C19 7.07989 19 6.51984 18.782 6.09202C18.5903 5.71569 18.2843 5.40973 17.908 5.21799C17.5064 5.01338 16.9884 5.00082 16 5.00005M8 5.00005V7H16V5.00005M8 5.00005V4.70711C8 4.25435 8.17986 3.82014 8.5 3.5C8.82014 3.17986 9.25435 3 9.70711 3H14.2929C14.7456 3 15.1799 3.17986 15.5 3.5C15.8201 3.82014 16 4.25435 16 4.70711V5.00005"
-                    stroke="#BF6CCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-            <p style="display: inline; margin-left: 0.3vw; color: #000; font-size: 1vw;">Choose a File</p>
-            <input type="file" accept="text/plain" name="" id="picker" style="display: none;">
-        </div>
-
-        <!-- btn 2 -->
+    <div class="submit_btn_body">
+        <p id="error-textarea" class="hidden">Please fill the form completey</p>
         <div
             style="width: 50%; display: flex; flex-direction: row; align-items: center; justify-content:space-between; background-color: #ffff; padding: 0.6vw 0.5vw; border-radius: 0.5vw;">
             <!-- clear btn -->
@@ -242,150 +267,7 @@
     </div>
 
 
-    <script>
-        const ip_form = document.getElementById("ip")
-        const body_form = document.getElementById("outbox")
-        console.log("hello to checker")
-        const checker_submit_btn = document.getElementById("checker-submit-btn")
-        var isEnable = true
-        checker_submit_btn.addEventListener("click", () => {
-            if (!isEnable) return;
-            isEnable = false
-            checker_submit_btn.style.opacity = "0.5"
-            checker_submit_btn.style.cursor = "default"
-
-            fetch('/checkerSubmit', {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({
-                    body: body_form.value,
-                })
-            }).then(res => {
-                if (res.status == 200) {
-                    res.json().then(data => {
-                        window.location.hash = "outbox"
-                        document.getElementById('result').innerHTML = data.content
-                        document.getElementById("response").classList.remove("hidden")
-                        fetch(`https://ipinfo.io/${ip_form.value}/json`).then(
-                            (response) => response.json()).then(
-                                (response) => {
-                                    document.getElementById("location").innerHTML = `<div id="location" style="font-weight: 500; width:100%;"><div style="font-weight: 800;">Geographical location: </div>
-                                            <ul>
-                                                <li>
-                                                    <span style="font-weight: 800;">ip: </span>
-                                                    ${response.ip}
-                                </li>
-                                <li>
-                                    <span style="font-weight: 800;">city: </span>
-                                    ${response.city}
-                                </li>
-                                 <li>
-                                    <span style="font-weight: 800;">region: </span>
-                                    ${response.region}
-                                </li>
-                                 <li>
-                                    <span style="font-weight: 800;">country: </span>
-                                    ${response.country}
-                                </li>
-                                 <li>
-                                    <span style="font-weight: 800;">postal: </span>
-                                    ${response.postal}
-                                </li>
-                                 <li>
-                                    <span style="font-weight: 800;">timezone: </span>
-                                    ${response.timezone}
-                                </li>
-                            </ul>
-                                `
-                                }).catch(err => console.log(err))
-                    })
-                }
-            }).finally(() => {
-                isEnable = true
-                checker_submit_btn.style.opacity = "1.0"
-                checker_submit_btn.style.cursor = "pointer"
-            })
-        })
-        // choose file
-        const pickerActivator = document.getElementById("choose-file")
-        const filePicker = document.getElementById("picker")
-        pickerActivator.addEventListener("click", () => {
-            filePicker.value = null
-            filePicker.click()
-
-        })
-        filePicker.onchange = () => {
-            if (filePicker === "") return
-            const typefile = filePicker.value.split('.')[1]
-            const file = filePicker.files[0]
-            switch (typefile) {
-                case 'txt':
-                    var reader = new FileReader();
-                    reader.onload = function (progressEvent) {
-                        // Entire file
-                        const text = this.result;
-                        // By lines
-
-                        var lines = text.split('\n');
-
-                        for (var line = 0; line < lines.length; line++) {
-                            if (lines[line] === "" && body_form.value == "") body_form.value += "\n"
-                            else body_form.value += "\n" + lines[line]
-                        }
-
-                    };
-                    reader.readAsText(file)
-                    break;
-                case 'pdf':
-                    body_form.value = "waiting..."
-                    const formData = new FormData();
-                    formData.append('file', file);
-
-                    fetch(`https://v2.convertapi.com/convert/pdf/to/txt?Secret=secret_SrOfU6cxXX2nRwwp&storefile=true`, {
-                        method: 'POST',
-                        body: formData
-                    })
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.Files && data.Files.length > 0) {
-                                const fileUrl = data.Files[0].Url;
-
-                                // Fetch the text content from the returned URL
-                                return fetch(fileUrl);
-                            } else {
-                                throw new Error('No files returned from the conversion.');
-                            }
-                        })
-                        .then(response => response.text())
-                        .then(text => {
-                            body_form.value = text;
-                        })
-                        .catch(error => {
-                            console.error('Error:', error);
-                            alert('Failed to convert PDF to text.');
-                        });
-                    break;
-                default:
-                    alert('format doesn\'t supported')
-                    filePicker.value = ""
-                    break;
-
-            }
-        }
-        var active = "outbox"
-        const paste_btn = document.getElementById("paste-btn")
-        paste_btn.addEventListener("click", async () => {
-            document.getElementById(active).value = await navigator.clipboard.readText()
-        })
-        const clear_btn = document.getElementById("clear-btn")
-        clear_btn.addEventListener("click", () => {
-            body_form.value = ""
-            email_form.value = ""
-            ip_form.value = ""
-            footer_form.value = ""
-        })
-
-
+    <script src="../static/js/checker.js">
     </script>
 </body>
 

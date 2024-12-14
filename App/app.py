@@ -1,5 +1,5 @@
-from flask import Flask, render_template,jsonify,  request, send_file 
-from flask_jwt_extended import JWTManager, create_access_token, JWTManager, get_jwt_identity, jwt_required
+from flask import Flask, Response, render_template,jsonify,  request 
+from flask_jwt_extended import JWTManager, create_access_token, get_jwt_identity, jwt_required
 from flask_bcrypt import Bcrypt
 import json
 import sqlite3
@@ -12,6 +12,7 @@ import markdown.extensions.fenced_code
 # App configuration
 app = Flask(__name__)
 app.config['JWT_TOKEN_LOCATION'] = ['headers']
+app.config["JWT_SECRET_KEY"] = "Yoko so watashi no Soul Society desu"
 jwt = JWTManager(app)
 bcrypt = Bcrypt(app)
 
@@ -46,13 +47,13 @@ def logPage():
         cursor.execute(f"SELECT password from users where email='{data['email']}'")
         x = cursor.fetchone()
         if x is None:
-            return jsonify("hellow from the backend"), 400
+            return jsonify("Yo dogg what's is this"), 302 
         else:
             if bcrypt.check_password_hash(x[0], data["password"]):
                 access_token = create_access_token(identity=data["email"])
                 return jsonify(access_token=access_token), 200
             else:
-                return jsonify("Invalid Password or Email"), 401
+                return jsonify("Invalid Password or Email"), 302
 
     return jsonify("hellow from the backend"), 400
 
@@ -69,7 +70,7 @@ def signupPage():
         cursor.execute(f"SELECT * from users where email='{data['email']}'")
         user = cursor.fetchone()
         if user is not None:
-            return jsonify("hellow from the backend"), 409
+            return jsonify("You're terrible at this buddy"), 302
 
         # creating a new user
         password = bcrypt.generate_password_hash(data["password"]).decode('utf-8') 
@@ -78,7 +79,7 @@ def signupPage():
         connection.commit()
         # returning the JWT token
         access_token = create_access_token(identity=data["email"])
-        return jsonify(access_token=access_token)
+        return jsonify(access_token=access_token), 202
     
     return Response(
         response = json.dumps("Invalide Request"),
@@ -95,18 +96,18 @@ def protected():
         cursor.execute(f"SELECT * from users where email='{current_user}'")
         user = cursor.fetchone()
         if user is None:
-                return jsonify("hellow from the backend"), 409
+                return jsonify("hellow from the backend"), 300
         else:
             return jsonify("okay")
-    return jsonify("Server Error"), 500
 
+    return jsonify("hellow from the backend"), 300
 
 
 # Forget password
-@app.route("/forgetpassword", methods=['GET', 'POST'])
+@app.route("/resetpass", methods=['GET', 'POST'])
 def forgetPass(): 
     if request.method == 'GET':
-        return render_template('index.html', main_img="./static/images/mainHero.png", auth="forgetpassword")
+        return render_template('resetPass.html', main_img="./static/images/mainHero.png", auth="forgetpassword")
     elif request.method == 'POST':
         data = request.get_json()
         # fetching the user
@@ -121,8 +122,8 @@ def forgetPass():
             # returning the access token
             connection.commit()
             access_token = create_access_token(identity=data["email"])
-            return jsonify(access_token=access_token), 201
-    return jsonify("hello from the backend"), 400
+            return jsonify(access_token=access_token), 202
+    return jsonify("hello from the backend"), 302
 
 
 
@@ -158,7 +159,9 @@ def submit():
 
 @app.route("/checkerSubmit", methods=["POST"])
 def cherckerSubmit():
-    body = request.get_json("body")
+    personOne = request.get_json("person_one")
+    personSec = request.get_json("person_sec")
+    comparis = request.get_json("compaision")
     checker_spam = classify_email(body)
     md_template_string = markdown.markdown(checker_spam)
     return jsonify({
@@ -167,4 +170,4 @@ def cherckerSubmit():
     }),200
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

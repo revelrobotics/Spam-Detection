@@ -1,3 +1,39 @@
+const logOut = document.getElementById("loggout-btn")
+const login = document.getElementById("login")
+const signup = document.getElementById("signup")
+function checkError() {
+    const tokken = window.localStorage.getItem("tokken")
+    if (!tokken) {
+        login.classList.remove("hidden")
+        signup.classList.remove("hidden")
+    }
+    else {
+        try {
+            fetch('/protected', {
+                method: "GET",
+                headers: {
+                    "Authorization": `Bearer ${tokken}`,
+                    "Content-Type": "application/json"
+                }
+            }).then(res => {
+                if (res.status == 401) {
+                    window.localStorage.removeItem("tokken")
+                    login.classList.remove("hidden")
+                    signup.classList.remove("hidden")
+                }
+                else if (res.status == 200) logOut.classList.remove("hidden")
+            }).catch(err => console.log("Server side is too much for you"))
+        }
+        catch (e) {
+            console.log("Just give up programming", e)
+        }
+    }
+}
+checkError()
+logOut.addEventListener("click", () => {
+    window.localStorage.removeItem("tokken")
+    window.location.reload()
+})
 const email_form = document.getElementById("email")
 const ip_form = document.getElementById("ip")
 const body_form = document.getElementById("outbox")
