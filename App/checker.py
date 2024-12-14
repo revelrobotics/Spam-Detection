@@ -10,7 +10,7 @@ load_dotenv(find_dotenv())
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
 # Checker
-def classify_email(new_email: str) -> str:
+def classify_email(person_1_examples: str, person_2_examples: str, new_email: str) -> str:
     """
     Classify an email as written by Alyazia, Aysha, or Suspicious, and provide a detailed explanation.
     
@@ -19,32 +19,6 @@ def classify_email(new_email: str) -> str:
     
     Returns:
         str: A classification result and explanation.
-    """
-    
-    # Define email examples for pattern recognition
-    alyazia_examples = """
-    Alyazia typically uses informal greetings and a casual tone, like:
-    - Halla Awash
-    - Hola Awash
-    - Hi Awash
-    
-    Examples of her writing:
-    1. Subject: Lunch Plans? 
-       Halla Awash, What’s up? Got any plans for lunch? Thinking of hitting that new shawarma spot near the office.
-    2. Subject: Weekend Vibes
-       Halla Awash, Man, this week has been crazy! Got anything fun planned for the weekend?
-    """
-
-    aysha_examples = """
-    Aysha typically uses semi-formal greetings and a supportive tone, like:
-    - Ahlan Yazoy
-    - Hello Yazoy
-    
-    Examples of her writing:
-    1. Subject: Got Your Back
-       Ahlan Yazoy, Just wanted to say I’ve got you covered on that project we discussed.
-    2. Subject: Weekend Recap
-       Ahlan Yazoy, How was your weekend? Mine was pretty chill—caught up on sleep and binged that series you recommended.
     """
 
     suspicious_criteria = """
@@ -56,11 +30,11 @@ def classify_email(new_email: str) -> str:
 
     # Create a prompt template
     prompt_template = PromptTemplate(
-        input_variables=["email", "alyazia_examples", "aysha_examples", "suspicious_criteria"],
+        input_variables=["email", "person_1_examples", "person_2_examples", "suspicious_criteria"],
         template=(
-            "You are an NLP algorithm that classifies emails as written by 'Alyazia', 'Aysha', or 'Suspicious'.\n"
-            "Here are Alyazia's patterns:\n{alyazia_examples}\n\n"
-            "Here are Aysha's patterns:\n{aysha_examples}\n\n"
+            "You are an NLP algorithm that classifies emails as written by 'Person 1', 'Person 2', or 'Suspicious'.\n"
+            "Here are Person 1's patterns:\n{person_1_examples}\n\n"
+            "Here are Person 2's patterns:\n{person_2_examples}\n\n"
             "Criteria for a suspicious email:\n{suspicious_criteria}\n\n"
             "Classify the following email:\n---\n{email}\n---\n"
             "Provide your classification and a detailed explanation for your decision."
@@ -76,8 +50,8 @@ def classify_email(new_email: str) -> str:
     # Generate a response
     result = chain.run({
         "email": new_email,
-        "alyazia_examples": alyazia_examples,
-        "aysha_examples": aysha_examples,
+        "person_1_examples": person_1_examples,
+        "person_2_examples": person_2_examples,
         "suspicious_criteria": suspicious_criteria,
     })
     
